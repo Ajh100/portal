@@ -3,7 +3,6 @@ namespace Home\Controller;
 use Think\Controller;
 class IndexController extends BaseController{
     public function index(){
-        
         $webCity = session('webcity');
         //左侧搜索
         if(!empty($webCity)){

@@ -10,7 +10,6 @@ class CarController extends BaseController{
     }
     
     public function _empty($name){
-        
         $this->get_car_list($name);
 
     }

@@ -7,19 +7,19 @@
 <title>【捷和租车】_轻松用上豪车，更实惠！_jh100.com</title> 
 <meta name="keywords" content="{$SiteConfigData.webkeyword}"/> 
 <meta name="description" content="{$SiteConfigData.webdescription}"/>
-<link rel="Shortcut Icon" href="/public/images/favicon.ico" /> 
+<link rel="Shortcut Icon" href="__PUBLIC__/images/favicon.ico" /> 
 <!--[if lt IE 9]> 
-<script type="text/javascript" src="/public/js/lib/html5.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/lib/html5.js"></script>
 <![endif]--> 
-<link href="/public/ui/css/ui.css" rel="stylesheet" type="text/css" /> 
-<link href="/public/ui/css/style.css" rel="stylesheet" type="text/css" />
+<link href="__PUBLIC__/ui/css/ui.css" rel="stylesheet" type="text/css" /> 
+<link href="__PUBLIC__/ui/css/style.css" rel="stylesheet" type="text/css" />
 
-<script type="text/javascript" src="/public/js/lib/jquery-1.7.2.min.js"></script>
-<script type="text/javascript" src="/public/ui/js/ui.js"></script>
-<script type="text/javascript" src="/public/js/lib/jquery.form.js"></script>
-<script src="/public/js/cxselect/jquery.cxselect.min.js"></script>
-<script type="text/javascript" src="/public/js/datepicker/WdatePicker.js"></script>
-<script type="text/javascript" src="/public/js/common/function.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/lib/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/ui/js/ui.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/lib/jquery.form.js"></script>
+<script src="__PUBLIC__/js/cxselect/jquery.cxselect.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/datepicker/WdatePicker.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/common/function.js"></script>
 
 <style>
 .zuche .zuche-form{
@@ -72,7 +72,7 @@ var _hmt = _hmt || [];
 </div>
 
 
-<div style="background:url(/public/images/zuche.jpg) center center no-repeat;height:400px;width:1200px;margin:0 auto;">
+<div style="background:url(__PUBLIC__/images/zuche.jpg) center center no-repeat;height:400px;width:1200px;margin:0 auto;">
 
 <div class="zuche-form">
     	<form name="form1" id="formZuche">
@@ -122,7 +122,7 @@ var _hmt = _hmt || [];
         	    <td height="40">* 验证码</td>
         	    <td><label for="imgcode"></label>
        	        <input type="text" name="imgcode" class="code" id="imgcode">
-       	        <img alt="点击切换" class="img" onclick="javascript:$(this).attr('src', '/public/imgcode/' + '?time=' + Math.random());" src="/public/imgcode/" width="176" height="82"></td>
+       	        <img alt="点击切换" class="img" onclick="javascript:$(this).attr('src', '__PUBLIC__/imgcode/' + '?time=' + Math.random());" src="__PUBLIC__/imgcode/" width="176" height="82"></td>
       	    </tr>
         	  <tr>
         	    <td height="35">&nbsp;</td>
@@ -147,7 +147,7 @@ var _hmt = _hmt || [];
 
 $('#brand').change(function(){
 	var brandId = $(this).val();
-	$.get("/public/ajaxSeries/", { bid: brandId },
+	$.get("__PUBLIC__/ajaxSeries/", { bid: brandId },
 	  function(data){
 		$('#series').html(data);;
 	});

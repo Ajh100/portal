@@ -5,10 +5,10 @@ return array(
     
     /* 数据库设�? */
     'DB_TYPE'               =>  'mysql',     // 数据库类�?
-    'DB_HOST'               =>  'localhost', // 服务器地�?
+    'DB_HOST'               =>  '104.131.144.192', // 服务器地�?
     'DB_NAME'               =>  'jh100',          // 数据库名
-    'DB_USER'               =>  'root',      // 用户�?
-    'DB_PWD'                =>  'huw$e!i@shen22255555',          // 密码
+    'DB_USER'               =>  'xxg3053',      // root 用户�?
+    'DB_PWD'                =>  'xxg111063053',          // huw$e!i@shen22255555 密码
     'DB_PREFIX' => 'tc_', // 数据库表前缀 
     'DB_CHARSET'=> 'utf8', // 字符�?
     
