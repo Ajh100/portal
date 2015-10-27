@@ -1,0 +1,417 @@
+﻿<!DOCTYPE HTML>
+<html> 
+<head> 
+<meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" /> 
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" /> 
+<title>{$vo.title}{$urlReg['brand']}{$urlReg.series}{$urlReg.jg}{$urlReg.cl}{$urlReg.pz}<neq name="Think.get.word" value="">_{$Think.get.word}_</neq>{$SiteCurentCity['title']}{$SiteConfigData.webtitle}</title> 
+<meta name="keywords" content="{$SiteConfigData.webkeyword}"/> 
+<meta name="description" content="{$SiteConfigData.webdescription}"/>
+<link rel="Shortcut Icon" href="/public/images/favicon.ico" /> 
+<!--[if lt IE 9]> 
+<script type="text/javascript" src="/public/js/lib/html5.js"></script>
+<![endif]-->
+<link href="/public/ui/css/ui.css" rel="stylesheet" type="text/css" /> 
+<link href="/public/ui/css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/public/js/lib/jquery.min.js"></script>
+<script type="text/javascript" src="/public/ui/js/ui.js"></script>
+<script type="text/javascript" src="/public/js/common/function.js"></script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?7ecbb4cb334ad0e101a161e2acf81899";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</head> 
+<body>
+
+<include file="Public:header" />
+
+<div class="wp">
+<nav class="breadcrumb pngfix">
+  <a href="/" class="maincolor">首页</a>
+  <span class="c_gray en">&gt;</span><a href="__APP__/car/">{$SiteCurentCity?$SiteCurentCity['title']:''}二手车</a>
+  <span class="c_gray en">&gt;</span><a href="__APP__/car/">{$SiteCurentCity?$SiteCurentCity['title']:''}二手车交易市场</a>
+  <span class="c_gray en">&gt;</span><span class="c_gray">捷和二手车</span>
+</nav>
+</div>
+
+
+<!--start车源搜索框-->
+<div class="wp car-ser-bar">
+		<div class="filter_box clearfix" style="	 #cecece;border-radius:1em 1em 0 0;">
+            <div class="box_border clearfix">
+                <h4>车　　型</h4>
+                <div class="contents">
+                    <ul>
+						<li><a href="__APP__/car/<neq name="urlReg.brand" value="">{$urlReg.brand}/</neq><neq name="urlReg.series" value="">{$urlReg.series}/</neq>{$urlCond|remove_search='cx',$urlReg['cx']}" <eq name="urlReg.cx" value="">class="on"</eq>>不&nbsp限</a>
+						</li>
+						<volist name="carLevel" id="vo">
+						<li><a <eq name="urlReg.cx" value="$vo['id']">class="on"</eq> href="__APP__/car/<neq name="urlReg.brand" value="">{$urlReg.brand}/</neq><neq name="urlReg.series" value="">{$urlReg.series}/</neq><neq name="urlReg.jg" value="">jg{$urlReg.jg}_</neq><neq name="urlReg.cl" value="">cl{$urlReg.cl}_</neq><neq name="urlReg.pz" value="">pz{$urlReg.pz}_</neq><neq name="urlReg.md" value="">md{$urlReg.md}_</neq>cx{$vo.id}/">{$vo.title}</a>
+						</volist>
+					</ul>
+                </div>
+            </div>
+        </div>
+		<div class="filter_box clearfix">
+            <div class="box_border clearfix">
+                <h4>品　　牌</h4>
+                <div class="contents">
+					<ul class="ls_collapse" style="display:block">
+						<li><a href="__APP__/car/<neq name="urlCond" value="">{$urlCond}/</neq>" <eq name="urlReg.brand" value="">class="on"</eq>>不&nbsp限</a></li>
+						
+						<volist name="carBrand" id="vo">
+						<eq name="vo.pinyin" value="$urlReg['brand']">
+						<li><a <eq name="urlReg.brand" value="$vo['pinyin']">class="on"</eq> href="__APP__/car/{$vo.pinyin}/<neq name="urlCond" value="">{$urlCond}/</neq>">{$vo.title}
+						</a></li>
+						</eq>
+						</volist>
+						
+						<volist name="carBrand" id="vo" offset="0" length='10'>
+						<neq name="vo.pinyin" value="$urlReg['brand']">
+						<li><a <eq name="urlReg.brand" value="$vo['pinyin']">class="on"</eq> href="__APP__/car/{$vo.pinyin}/<neq name="urlCond" value="">{$urlCond}/</neq>">{$vo.title}</a></li>
+						</neq>
+						</volist>
+						</ul>
+						
+					<ul class="js_more_list brand_list" style="display:none">
+						<volist name="carBrand" id="vo">
+						
+						<li><a <eq name="urlReg.brand" value="$vo['pinyin']">class="on"</eq> href="__APP__/car/{$vo.pinyin}/<neq name="urlCond" value="">{$urlCond}/</neq>">{$vo.title}
+</a></li>
+						
+						</volist>
+						</ul>
+
+						
+						<span id="js_more" class="btn btn-more">
+                        <a href="javascript:;"><span>更多</span><i></i></a>
+						</span>
+                </div>
+            </div>
+        </div>
+		<notempty name="carSeries">
+		<div class="filter_box clearfix">
+            <div class="box_border clearfix">
+                <h4>车　　系</h4>
+                <div class="contents">
+					<ul class="ls_collapse">
+                        <li><a href="__APP__/car/<neq name="urlReg.brand" value="">{$urlReg.brand}/</neq><neq name="urlCond" value="">{$urlCond}/</neq>" <eq name="urlReg.series" value="">class="on"</eq>>不&nbsp限</a></li>
+						<volist name="carSeries" id="vo">
+						<li><a 
+						<eq name="urlReg.series" value="$vo['pinyin']">class="on"</eq> href="__APP__/car/<neq name="urlReg.brand" value="">{$urlReg.brand}/</neq>{$vo.pinyin}/<neq name="urlCond" value="">{$urlCond}/</neq>">{$vo.title}({$vo.subtitle})</a></li>
+						</volist>                   
+					</ul>
+                </div>
+            </div>
+        </div>
+		</notempty>
+		<div class="filter_box clearfix">
+            <div class="box_border clearfix">
+                <h4>车　　龄</h4>
+                <div class="contents">
+					<ul>
+                        <li><a href="__APP__/car/<neq name="urlReg.brand" value="">{$urlReg.brand}/</neq><neq name="urlReg.series" value="">{$urlReg.series}/</neq>{$urlCond|remove_search='cl',$urlReg['cl']}" <eq name="urlReg.cl" value="">class="on"</eq>>不&nbsp限</a></li>
+						<volist name="serCarYear" id="vo">
+						<li><a 
+						<eq name="urlReg.cl" value="$vo['years']">class="on"</eq> href="__APP__/car/
+						<neq name="urlReg.brand" value="">{$urlReg.brand}/</neq>
+						<neq name="urlReg.series" value="">{$urlReg.series}/</neq>
+						<neq name="urlReg.cx" value="">cx{$urlReg.cx}_</neq>
+						<neq name="urlReg.jg" value="">jg{$urlReg.jg}_</neq>
+						<neq name="urlReg.pz" value="">pz{$urlReg.pz}_</neq>
+						<neq name="urlReg.md" value="">md{$urlReg.md}_</neq>
+						cl{$vo.years}/">{$vo.title}</a></li>
+						</volist>
+						<!--
+						<li data-widget="app/ms_v2/js/list.js#customInput" data-type="price">
+                            <div class="custom">
+                                <p class="p1"><input onkeyup="onlyInputNumber(this)" class="i1 js_prev" value="">-<input onkeyup="onlyInputNumber(this)" class="i1 js_next" value=""><button onclick="searchCurr('cheling', this)">确定</button></p>
+                            </div>
+                        </li>
+						-->
+                    </ul>
+                </div>
+            </div>
+        </div>
+		
+		<div class="filter_box clearfix" style="	border-radius:0 0 1em 8em;">
+            <div class="box_border clearfix">
+                <h4>价　　格</h4>
+                <div class="contents">
+					<ul>
+                        <li><a href="__APP__/car/<neq name="urlReg.brand" value="">{$urlReg.brand}/</neq><neq name="urlReg.series" value="">{$urlReg.series}/</neq>{$urlCond|remove_search='jg',$urlReg['jg']}" <eq name="urlReg.jg" value="">class="on"</eq>>不&nbsp限</a></li>
+						<volist name="serPrice" id="vo">
+						<li><a 
+						<eq name="urlReg.jg" value="$vo['price']">class="on"</eq> 
+						href="__APP__/car/
+						<neq name="urlReg.brand" value="">{$urlReg.brand}/</neq>
+						<neq name="urlReg.series" value="">{$urlReg.series}/</neq>
+						<neq name="urlReg.cx" value="">cx{$urlReg.cx}_</neq>
+						<neq name="urlReg.cl">cl{$urlReg.cl}_</neq>
+						<neq name="urlReg.pz" value="">pz{$urlReg.pz}_</neq>
+						<neq name="urlReg.md" value="">md{$urlReg.md}_</neq>
+						jg{$vo.price}/">{$vo.title}
+						</a></li>
+						</volist>
+						<!--
+						<li data-widget="app/ms_v2/js/list.js#customInput" data-type="price">
+                            <div class="custom">
+                                <p class="p1"><input class="i1 js_prev" value="">-<input class="i1 js_next" value=""><button onclick="searchCurr('price', this)">确定</button></p>
+                            </div>
+                        </li>
+						-->
+                    </ul>
+                </div>
+            </div>
+        </div>
+		
+		
+		<notempty name="serStore">
+		<div class="filter_box clearfix">
+            <div class="box_border clearfix">
+                <h4>门　　店</h4>
+                <div class="contents">
+					<ul>
+                        <li><a href="__APP__/car/<neq name="urlReg.brand" value="">{$urlReg.brand}/</neq><neq name="urlReg.series" value="">{$urlReg.series}/</neq>{$urlCond|remove_search='md',$urlReg['md']}" <eq name="urlReg.md" value="">class="on"</eq>>不&nbsp限</a></li>
+						<volist name="serStore" id="vo">
+						<li><a 
+						<eq name="urlReg.md" value="$vo['id']">class="on"</eq> 
+						href="__APP__/car/
+						<neq name="urlReg.brand" value="">{$urlReg.brand}/</neq>
+						<neq name="urlReg.series" value="">{$urlReg.series}/</neq>
+						<neq name="urlReg.cx" value="">cx{$urlReg.cx}_</neq>
+						<neq name="urlReg.cl">cl{$urlReg.cl}_</neq>
+						<neq name="urlReg.jg" value="">jg{$urlReg.jg}_</neq>
+						<neq name="urlReg.pz" value="">pz{$urlReg.pz}_</neq>
+						md{$vo.id}/">{$vo.title}
+						</a></li>
+						</volist>
+                    </ul>
+                </div>
+            </div>
+        </div>
+		</notempty>
+</div>
+<!--end车源搜索框-->
+
+
+<!--start车源列表-->
+<div class="wp">
+    	<div class="home-car-list4">
+			<notempty name="carList">
+            <ul>
+				<volist name="carList" id="vo">
+				<li>
+					<a href="__APP__/car/detail/{$vo.id}.html">
+                    <div class="pic">
+                        <img class="js_scroll" alt="{$vo.title}" src="{:C('WEB_IMG_URL')}thumb/w/{$vo.cover|extend},c_fill,h_180,w_278.{$vo.cover|extend=1}" style="display: inline;">
+                    </div>
+                    <h4>{$vo.title}</h4>
+                    <div class="other clearfix">
+                        <div><nobr>{$vo['regtime'] ? date('Y-m', strtotime($vo['regtime'])) : '未上牌'} | {$vo.mileage}万公里 | {$vo.gearbox} |{$vo.output}</nobr></div>
+                    </div>
+                    <div class="other clearfix">
+						<div class="shoufu"><eq name="vo.shoufu" value="">一口价<else/>首付￥{$vo.shoufu}万</eq></div>
+                        <div class="price">￥{$vo.price}万</div>
+                    </div>
+                    </a>
+                 </li>
+				</volist>
+                <div class="clearfix"></div>
+            </ul>
+			</notempty>
+			<notempty name="otherList">
+			<h3 style="text-align:center;padding-bottom:30px;">当前城市暂无您搜索的车辆</h3>
+            <ul>
+				<volist name="otherList" id="vo">
+				<li>
+					<a href="http://{$vo.city_id|getCarCityUrl='pinyin'}.jh100.com/car/detail/{$vo.id}.html" target="_blank">
+                    <div class="pic">
+                        <img class="js_scroll" alt="{$vo.title}" src="{:C('WEB_IMG_URL')}thumb/w/{$vo.cover|extend},c_fill,h_180,w_278.{$vo.cover|extend=1}" style="display: inline;">
+                    </div>
+                    <h4>{$vo.title}</h4>
+                    <div class="other clearfix">
+                        <div>{$vo['regtime'] ? date('Y-m', strtotime($vo['regtime'])) : '未上牌'} | {$vo.mileage}万公里 | {$vo.gearbox} | {$vo.esid_id|get_esid} | {$vo.city_id|getCarCityUrl='title'}</div>
+                    </div>
+                    <div class="other clearfix">
+						<div class="shoufu"><eq name="vo.shoufu" value="">一口价<else/>首付￥{$vo.shoufu}万</eq></div>
+                        <div class="price">￥{$vo.price}万</div>
+                    </div>
+                    </a>
+                 </li>
+				</volist>
+                <div class="clearfix"></div>
+            </ul>
+			</notempty>
+        </div>
+        
+        </div>
+        
+        <div id="pageNav" class="pageNav">{$page}</div>
+<!--end车源列表-->
+
+
+
+<include file="Public:footer" />
+
+
+
+<script type="text/javascript">
+$(function(){
+	$('.btn-more').click(function(){
+		var parent = $(this).parent();
+		var span = $(this).find('span');
+		if(span.text()=='收起'){
+			span.text('更多');
+		}else{
+			span.text('收起');
+		}
+		$(parent).find('.ls_collapse').toggle();
+		$(parent).find('.js_more_list').toggle();
+		$(parent).parent().toggleClass("more_box");
+	});
+});
+
+function onlyInputNumber(thisItem){
+	var $this=$(thisItem);
+	var val=$this.val();
+	val=val.replace(/[^0-9]*/g,'');
+	val=$.trim(val);
+	$this.val(val);
+	return val;
+}
+
+function searchCurr(type, obj){
+	var url = document.location.href;
+	var parent = $(obj).prevAll();
+	var min = $(parent).eq(0).val();
+	var max = $(parent).eq(1).val();
+
+	switch(type){
+		case 'cheling':
+			var carurl = '__APP__/car/<neq name="urlReg.brand" value="">{$urlReg.brand}/</neq><neq name="urlReg.series" value="">{$urlReg.series}/</neq>{$urlCond|remove_search='cl',$urlReg['cl']}';
+			if(str_repeat(carurl, '-') > 0){
+				carurl = carurl.substring(0,carurl.length-1);
+			}
+			var minv = min<max ? min : max;
+			var maxv = min>max ? min : max;
+			var str = 'cl'+minv+'-'+maxv+'/';
+			if(str_repeat(url, '-')>1){
+				str = '_'+str; 
+			}
+			if(minv>0 && maxv>0 && minv<maxv){
+				window.location = carurl+str;
+			}
+			break;
+		case 'price':
+			var carurl = '__APP__/car/<neq name="urlReg.brand" value="">{$urlReg.brand}/</neq><neq name="urlReg.series" value="">{$urlReg.series}/</neq>{$urlCond|remove_search='jg',$urlReg['jg']}';
+			if(str_repeat(carurl, '-') > 0){
+				carurl = carurl.substring(0,carurl.length-1);
+			}
+			var minv = min<max ? min : max;
+			var maxv = min>max ? min : max;
+			var str = 'jg'+minv+'-'+maxv+'/';
+			if(str_repeat(url, '-')>1){
+				str = '_'+str; 
+			}
+			if(minv>0 && maxv>0 && minv<maxv){
+				window.location = carurl+str;
+			}
+			break;
+		case 'keywords' :
+			
+			break;
+		default:
+			break;
+	}
+}
+
+function str_repeat(str, sub)
+{
+   var sum=0;
+   for(var k=0;k<str.length;k++)
+   {
+       if(str.charAt(k)==sub)
+       {
+           sum+=1;
+       }
+   }
+   return sum;
+}
+</script>
+ <script type="text/javascript">
+var _mvq = _mvq || [];
+_mvq.push(['$setAccount', 'm-88304-0']);
+
+_mvq.push(['$logConversion']);
+(function() {
+    var mvl = document.createElement('script');
+    mvl.type = 'text/javascript'; mvl.async = true;
+    mvl.src = ('https:' == document.location.protocol ? 'https://static-ssl.mediav.com/mvl.js' : 'http://static.mediav.com/mvl.js');
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(mvl, s); 
+})();
+
+</script>  
+<script type="text/javascript">
+var _mvq = window._mvq || []; 
+window._mvq = _mvq;
+_mvq.push(['$setAccount', 'm-88304-0']);
+
+_mvq.push(['$setGeneral', '', '', /*用户名*/ 'mba_virtual@mediav.com', /*用户id*/ 'm-88304-0']);
+_mvq.push(['$logConversion']);
+
+_mvq.push(['setPageUrl', /*单品着陆页url*/ '']);	//如果不需要特意指定单品着陆页url请将此语句删掉
+_mvq.push(['$addGoods',  /*分类id*/ '', /*品牌id*/ '', /*商品名称*/ '',/*商品ID*/ '',/*商品售价*/ '', /*商品图片url*/ '', /*分类名*/ '', /*品牌名*/ '', /*商品库存状态1或是0*/ '', /*网络价*/ '',/*收藏人数*/ '', /*商品下架时间*/ '']);
+_mvq.push(['$addPricing', /*价格描述*/ '']);
+_mvq.push(['$logData']);
+</script>
+
+
+<script type="text/javascript">
+var _mvq = window._mvq || []; 
+window._mvq = _mvq;
+_mvq.push(['$setAccount', 'm-88304-0']);
+_mvq.push(['$setGeneral', '', '', /*用户名*/ 'mba_virtual@mediav.com', /*用户id*/ 'm-88304-0']);
+_mvq.push(['$logConversion']);
+_mvq.push(['$addOrder',/*订单号*/ '', /*订单金额*/ '']);
+_mvq.push(['$addItem', /*订单号*/ '', /*商品id*/ '', /*商品名称*/ '', /*商品价格*/ '', /*商品数量*/ '', /*商品页url*/ '', /*商品页图片url*/ '']);
+_mvq.push(['$logData']);
+</script>
+<script type="text/javascript">
+var _mvq = window._mvq || []; 
+window._mvq = _mvq;
+_mvq.push(['$setAccount', 'm-88304-0']);
+_mvq.push(['$setGeneral', '', '', /*用户名*/ 'mba_virtual@mediav.com', /*用户id*/ 'm-88304-0']);
+_mvq.push(['$logConversion']);
+_mvq.push(['$addSearchResult', /*搜素关键词*/ '', /*搜索结果数*/ '']);
+_mvq.push(['$logData']);
+</script>
+
+
+<script type="text/javascript">
+var _mvq = window._mvq || []; 
+window._mvq = _mvq;
+_mvq.push(['$setAccount', 'm-88304-0']);
+_mvq.push(['$setGeneral', '', '', /*用户名*/ 'mba_virtual@mediav.com', /*用户id*/ 'm-88304-0']);
+_mvq.push(['$logConversion']);
+
+</script>
+<script type="text/javascript">
+var _mvq = window._mvq || []; 
+window._mvq = _mvq;
+_mvq.push(['$setAccount', 'm-88304-0']);
+
+_mvq.push(['$setGeneral', '', '', /*用户名*/ 'mba_virtual@mediav.com', /*用户id*/ 'm-88304-0']);
+_mvq.push(['$logConversion']);
+
+</script>
+<script type="text/javascript" src="http://tajs.qq.com/gdt.php?sId=50206722" charset="UTF-8"></script>          
+<script src='http://stat.e.tf.360.cn/search/c.js?u=1309775502' language='JavaScript' ></script><script src='http://pw.cnzz.com/tongji_360.php?id=1253515421&pid=e360&l=2' language='JavaScript' charset='gb2312'></script>
+</body>
+</html>

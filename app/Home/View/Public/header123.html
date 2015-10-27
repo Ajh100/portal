@@ -1,0 +1,64 @@
+<!--start头部-->
+<div class="topnav">
+  <div class="wp cl">
+    <div class="l">您好，欢迎来到捷和官网</div>
+    <div class="r">
+      <span class="r_nav"><a title="收藏" href="javascript:addFavorite();">收藏本站</a></span><span class="pipe">|</span>
+      <span class="r_nav"><a href="javascript:void(0)" onclick="setHome(this);" title="设为首页">设为首页</a></span>
+    </div>
+  </div>
+</div>
+
+<div class="header">
+	<div class="wp">
+		<div class="logo"><h1><a href="/">捷和二手车</a></h1></div>
+        <div class="city">
+			<span class="oncity">
+            	<i></i>{$SiteCurentCity?$SiteCurentCity['title']:'全国'}
+            	[切换城市]
+				<div class="down" style="display:none;">
+					<dl class="d1 clearfix">
+					<!--<dd><a title="全国" href="{:C('WEB_BASE_URL')}">全国</a></dd>-->
+					<volist name="SiteCityData" id="vo">
+					<dd><a title="{$vo.title}" href="http://{$vo.pinyin}.jh100.com/">{$vo.title}</a></dd>
+					</volist>
+					</dl>
+				</div>
+            </span>
+        </div>
+		<div class="search">
+            <div class="clearfix">
+                <form class="search_box" method="get" action="__APP__/car/">
+                    <div class="fl">
+                        <i></i>
+                        <input type="text" value="{$Think.get.word}" name="word" placeholder="输入您要查找车的关键字">
+                    </div>
+                    <div class="fr"><button>搜　索</button></div>
+                </form>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>
+
+<div id="nav">
+    <nav class="mainnav cl wp">
+      <ul class="cl">
+        <li <eq name="Think.CONTROLLER_NAME" value="Index">  class="current"</eq>>  <a href="/">首页</a></li>
+        <li <eq name="Think.CONTROLLER_NAME" value="Car">    class="current"</eq>>  <a href="__APP__/car/">我要买车</a></li>
+	     <li><a href="{:C('WEB_PC_URL')}__APP__/join/" target="_blank">联盟捷和      </a></li>
+		  <li class="drop"><a href="#"> 更多</a></li>
+		  <ul class="wp">
+             <li <eq name="Think.CONTROLLER_NAME" value="sellcar">class="current"</eq>>  <a href="__APP__/customer/sellcar/">我要卖车</a></li>
+		      <li <eq name="Think.CONTROLLER_NAME" value="Special">class="current"</eq>>  <a href="__APP__/special/">特价车源</a></li>
+		      <li><a href="__APP__/zuche/">我要租车</a></li>
+             <li><a href="__APP__/customer/customized/">车型定制</a></li>
+             <li <eq name="Think.CONTROLLER_NAME" value="Elegant">class="current"</eq>>  <a href="__APP__/elegant/">捷和风采</a></li>       
+             <li <eq name="Think.CONTROLLER_NAME" value="about">  class="current"</eq>>  <a href="__APP__/page/about.html">关于捷和</a></li>
+		  </ul>
+        <li class="last"><img alt="捷和联系电话:400-151-6868" src="{:C('WEB_BASE_URL')}public/images/tel-2.jpg"></li>
+      </ul>
+    </nav>
+    <div class="clearfix"></div>
+</div>
+<!--end头部-->

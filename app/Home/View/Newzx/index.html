@@ -1,0 +1,91 @@
+<!DOCTYPE HTML>
+<html> 
+<head> 
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" /> 
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" /> 
+<title>新闻资讯 _捷和二手车_全国连锁二手车运营商_jh100.com</title> 
+<meta name="keywords" content="捷和二手车新闻资讯,二手车新闻"/> 
+<meta name="description" content="捷和二手车新闻资讯,二手车新闻"/> 
+<link rel="Shortcut Icon" href="/public/images/favicon.ico" /> 
+<!--[if lt IE 9]> 
+<script type="text/javascript" src="/public/js/lib/html5.js"></script>
+<![endif]--> 
+<link href="/public/ui/css/ui.css" rel="stylesheet" type="text/css" /> 
+<link href="/public/ui/css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/public/js/lib/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="/public/ui/js/ui.js"></script>
+<script type="text/javascript" src="/public/js/common/function.js"></script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?7ecbb4cb334ad0e101a161e2acf81899";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</head> 
+<body>
+
+
+<include file="Public:header" />
+
+<div class="wp">
+<nav class="breadcrumb pngfix">
+  <a href="/" class="maincolor">首页</a>
+  <span class="c_gray en">&gt;</span><a href="__APP__/car/">二手车</a>
+  <span class="c_gray en">&gt;</span><span class="c_gray">新闻中心</span>
+</nav>
+</div>
+
+
+
+<!--start关于我们-->
+<div class="news-page wp">
+	<div class="col_l">
+    	<h3 class="page-one-title">新闻资讯</h3>
+    	<div class="newslist">
+					<ul>
+				<volist name="listNews" id="vo">
+				<li>
+					<div class="new_l">
+						<a href="__APP__/news/{$vo.id}.html" target="_blank" title="{$vo.title}">
+                                                    <eq name="vo.image" value="">
+                                                        <img src="/public/images/nopic.jpg" />
+                                                    <else/>
+                                                        <img src="{:C('WEB_IMG_URL')}thumb/d/{$vo.image|extend},c_fill,h_140,w_230.{$vo.image|extend=1}" />
+                                                    </eq>
+							
+						</a>
+					</div>
+					</li>
+				</volist>
+			</ul>
+			<div id="pageNav" class="pageNav">{$page}</div>
+        </div>
+  </div>
+    <div class="col_r">
+    	<h3>捷和风采</h3>
+    	<ul class="about-nav-list">
+            <li><a  href="__APP__/page/about.html">关于我们</a></li>
+           
+			<li><a class="current" href="__APP__/news/cid-2.html">捷和车讯</a></li>
+			<li><a href="__APP__/news/">新闻资讯</a></li>
+			<li><a href="__APP__/elegant/">企业视频</a></li>
+            <li><a href="__APP__/contact/">联系我们</a></li>            
+	        
+        </ul>
+    </div>
+    <div class="clearfix"></div>
+</div>
+<!--end关于我们-->
+
+
+
+<include file="Public:footer" />
+
+<script src='http://stat.e.tf.360.cn/search/c.js?u=1309775502' language='JavaScript' ></script><script src='http://pw.cnzz.com/tongji_360.php?id=1253515421&pid=e360&l=2' language='JavaScript' charset='gb2312'></script>
+</body>
+</html>

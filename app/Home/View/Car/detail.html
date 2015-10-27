@@ -1,0 +1,398 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head> 
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" /> 
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" /> 
+<title>【{$carBrand['title']}{$SiteCurentCity['title']}二手{$carBrand['title']}{$carSeries['title']}】_{$SiteCurentCity['title']}捷和二手车_全国连锁二手车运营商_jh100.com</title> 
+<meta name="keywords" content="二手车,{$carBrand['title']}最低报价,二手{$carBrand['title']}多少钱,{$carData.price}万左右买什么车好,{$SiteCurentCity['title']}{$carData['title']}"/>
+<meta name="description" content="{$SiteCurentCity['title']}{$carData['title']},行驶{$carData['mileage']}万公里,{$carData.description},捷和二手车为您提供最真实的二手{$carBrand['title']}报价,最详细的{$carBrand['title']}车源情况"/>
+<link rel="Shortcut Icon" href="/public/images/favicon.ico" /> 
+<!--[if lt IE 9]> 
+<script type="text/javascript" src="/public/js/lib/html5.js"></script>
+<![endif]--> 
+<link href="/public/ui/css/ui.css" rel="stylesheet" type="text/css" /> 
+<link href="/public/ui/css/style.css" rel="stylesheet" type="text/css" />
+<link href="/public/js/gallery/jquery.ad-gallery.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/public/js/lib/jquery.min.js"></script>
+<script type="text/javascript" src="/public/ui/js/ui.js"></script>
+<script type="text/javascript" src="/public/js/common/function.js"></script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?7ecbb4cb334ad0e101a161e2acf81899";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</head> 
+<body>
+
+<include file="Public:header" />
+
+
+<div class="wp">
+<nav class="breadcrumb pngfix"  >
+  <a href="/" class="maincolor">首页</a>
+  <span class="c_gray en">&gt;</span><a href="__APP__/car/">{$SiteCurentCity?$SiteCurentCity['title']:''}二手车</a>
+  <span class="c_gray en">&gt;</span><a href="__APP__/car/">{$SiteCurentCity?$SiteCurentCity['title']:''}二手车交易市场</a>
+  <span class="c_gray en">&gt;</span><span class="c_gray">{$SiteCurentCity?$SiteCurentCity['title']:''}{$carData.title}</span>
+
+</nav>
+</div>
+
+
+
+<!--start车源详细-->
+<div class="car-page">
+	<div class="imgscroll">
+    <div id="gallery" class="ad-gallery">
+      <div class="ad-image-wrapper">
+      </div>
+      <div class="ad-nav">
+        <div class="ad-thumbs">
+          <ul class="ad-thumb-list">
+			<volist name="carImg" id="vo">
+            <li>
+              <a href="{:C('WEB_IMG_URL')}thumb/w/{$vo|extend},c_fill,h_360,w_550.{$vo|extend=1}">
+                <img alt="{$carData.title}" src="{:C('WEB_IMG_URL')}thumb/w/{$vo|extend},c_fill,h_360,w_550.{$vo|extend=1}">
+              </a>
+            </li>
+			</volist>
+          </ul>
+        </div>
+      </div>
+    </div>
+        
+        
+        
+    </div>
+    <div class="imgtext">
+    	<h3>{$carData.title}</h3>
+        <div class="pricebox">
+			<eq name="carData.status" value="3">
+				<div class="l lp">
+					<h3><strong style="text-decoration: line-through;color: #7c7c7c;">￥{$carData.price}</strong>万</h3>
+						<p>新车包牌价：{$carClass.newprice}万(含{$carClass.tax}元购置税)</p>
+				</div>
+				<div class="r rp">
+					<h3>已下架</h3>
+				</div>
+			</eq>
+			<eq name="carData.status" value="4">
+				<div class="l lp">
+					<h3><strong style="text-decoration: line-through;color: #7c7c7c;">￥{$carData.price}</strong>万</h3>
+					<p>新车包牌价：<php>echo ($carClass['newprice'] + floor($carClass['newprice']*8.547)/100)</php>万(裸车价<php>echo $carClass['newprice']</php>万+<php>echo floor($carClass['newprice']*8.547)/100</php>万购置税)</p>
+				</div>
+				<div class="r rp">
+					<h3>已售</h3>
+				</div>
+			</eq>
+			<eq name="carData.status" value="2">
+				<div class="l lp">
+					<h3><strong style="text-decoration: line-through;color: #7c7c7c;">￥{$carData.price}</strong>万</h3>
+						<p>新车包牌价：<php>echo ($carClass['newprice'] + floor($carClass['newprice']*8.547)/100)</php>万(裸车价<php>echo $carClass['newprice']</php>万+<php>echo floor($carClass['newprice']*8.547)/100</php>万购置税)</p>
+						<p><em>为您节省 <php>echo ($carClass['newprice'] + floor($carClass['newprice']*8.547)/100)-$carData['price']</php>万</em></p>
+				</div>
+
+				<div class="r rp">
+					<h3 style="font-size:26px;color:#a31000;">特价￥{$carData.specialprice}万</h3>
+				</div>		
+			</eq>
+			<eq name="carData.status" value="1">
+				<div class="l lp" <eq name="carData.shoufu" value="">style="border-right:0;"</eq>>
+					<h3><strong>￥{$carData.price}</strong>万</h3>
+						<p>新车包牌价：<php>echo ($carClass['newprice'] + floor($carClass['newprice']*8.547)/100)</php>万(裸车价<php>echo $carClass['newprice']</php>万+<php>echo floor($carClass['newprice']*8.547)/100</php>万购置税)</p>
+						<p><em>为您节省 <php>echo ($carClass['newprice'] + floor($carClass['newprice']*8.547)/100)-$carData['price']</php>万</em></p>
+				</div>
+
+				<neq name="carData.shoufu" value="">
+				<div class="r rp">
+					<h3>首付{$carData.shoufu}万</h3>
+				</div>
+				</neq>
+			</eq>
+
+        </div>
+			<div class="buyBody">
+                <div class="l box">
+                    <p>上牌时间</p>
+                    <h3 style="max-width:80px">{$carData['regtime'] ? date('Y-m', strtotime($carData['regtime'])) : '未上牌'}</h3>
+                </div>
+                <div class="l box">
+                    <p>行驶里程</p>
+                    <h3 style="max-width:80px">{$carData.mileage}万公里</h3>
+                </div>
+                <div class="l box">
+                    <p>排量</p>
+                    <h3 style="max-width:50px">{$carClass.output}</h3>
+                </div>
+                <div class="l box">
+                    <p>排放标准</p>
+                    <h3 style="max-width:50px">{$carEsid.title}</h3>
+                </div>                   
+                <div class="l box" style="border:none;">
+                    <p>所在地</p>
+                    <h3 style="max-width:200px">{$storeInfo.address}</h3>
+                </div>
+            </div>
+            <div class="outLinkBody">
+                    	<div class="fl blank">
+                        	<img src="/public/images/telcar.jpg">
+                            {$saleMan.telphone}
+                            {$saleMan.nickname}
+                        </div>
+            </div>
+            <div class="tBody">
+				<img alt="捷和质保服务"src="/public/images/3721.png" />
+            </div>
+    </div>
+    <div class="clearfix"></div>
+</div>
+
+<div class="car-page-details">
+	<div>
+<table class="table table-border table-bordered">
+            <tbody>
+              <tr>
+                <th width="70" style="background:#efefef">车辆编号</th>
+                <th width="500">JH{$carData.id|str_pad=5,'0',STR_PAD_LEFT}</th>
+                <th width="70" style="background:#efefef">更新时间</th>
+                <th>{$carData.addtime|date='Y-m-d',###}</th>
+              </tr>
+              <tr>
+                <th class="tdbg" style="background:#efefef">所属品牌</th>
+                <td>{$carBrand.title}</td>
+                <td style="background:#efefef">排量</td>
+                <td>{$carClass.output}</td>
+              </tr>
+
+              <tr>
+                <th style="background:#efefef">初登日期</th>
+                <td>{$carData['regtime'] ? date('Y-m', strtotime($carData['regtime'])) : '未上牌'}</td>
+				<td style="background:#efefef">交 强 险</td>
+                <td>{$carData['inspeyear']==''?'无':'有'}</td>
+                
+              </tr>
+              <tr>
+                <th style="background:#efefef">行驶里程</th>
+                <td>{$carData.mileage}万公里</td>
+                <td style="background:#efefef">车身颜色</td>
+                <td>{$carColor.title}</td>
+              </tr>
+              <tr>
+                <th style="background:#efefef">燃料种类</th>
+                <td>
+				<switch name="carData.fuel" >
+				<case value="1">汽油</case>
+				<case value="2">柴油</case>
+				</switch>
+				</td>
+                <td style="background:#efefef">排放标准</td>
+                <td>{$carEsid.title}</td>
+              </tr>
+              <tr>
+                <th style="background:#efefef">车主描述：</th>
+                <td colspan="3">{$carData.description}</td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+</div>
+
+<notempty name="redCarList">
+<div class="wp m20">
+		<div class="home-sub-title">
+			<h3>推荐车源</h3>
+		</div>
+    	<div class="home-car-list4">
+            <ul>
+				<volist name="redCarList" id="vo">
+				<li>
+					<a href="__APP__/car/detail/{$vo.id}.html">
+                    <div class="pic">
+                        <img class="js_scroll" alt="{$vo.title}" src="{:C('WEB_IMG_URL')}thumb/w/{$vo.cover|extend},c_fill,h_180,w_278.{$vo.cover|extend=1}" style="display: inline;">
+                    </div>
+                    <h4>{$vo.title}</h4>
+                    <div class="other clearfix">
+                        <div>{$vo['regtime']?$vo['regtime']:'未上牌'} | {$vo.mileage}万公里 | {$vo.gearbox} | {$carClass.output}</div>
+                    </div>
+                    <div class="other clearfix">
+						<div class="shoufu"><eq name="vo.shoufu" value="">一口价<else/>首付￥{$vo.shoufu}万</eq></div>
+                        <div class="price">￥{$vo.price}万</div>
+                    </div>
+                    </a>
+                 </li>
+				</volist>
+                <div class="clearfix"></div>
+            </ul>
+        </div>  
+</div>
+</notempty>
+
+<!--门店信息-->
+<div class="car-page-store">
+	<h4>门店地址</h4>
+    <div class="left">
+          <dl>
+              <dt>
+                  <p class="ztdt">展厅地址</p>
+                  <p>
+                      地址：{$storeInfo.address}<br>
+                      电话：{$storeInfo.tel}
+                  </p>
+              </dt>
+              <dd class="dd1">
+                  <p class="ztdt">营业时间</p>
+                  <p>
+                      {$storeInfo.business}<br>
+                      <b>周六周日正常营业</b>
+                  </p>
+              </dd>
+              <dd class="dd">
+                  <p class="ztdt">我要买车</p>
+                  <p><b>在线选择你需要的车辆</b></p>
+                  <p><a href="__APP__/car/md{$storeInfo.id}/">点击进入</a></p>
+              </dd>
+          </dl>
+    </div>
+    <div class="sliders">
+        <section class="slider boxSlider cl has-dots">
+          <ul class="tabcon">
+			<volist name="storeImg" id="vo">
+            <li><img alt="{$SiteCurentCity['title']}捷和二手车分店图片"src="{:C('WEB_RES_URL')}{$vo}" width="530" height="300" alt=""></li>
+            </volist>
+          </ul>
+        </section>
+    </div>
+    <div class="right" id="allmap">
+			<lbs-map>
+				<lbs-poi name="{$storeInfo.address}" location="{$storeInfo.coordinate}"></lbs-poi>
+			</lbs-map>
+    </div>
+    <div class="clearfix"></div>
+</div>
+<!--门店信息-->
+
+
+
+
+<!--end车源详细-->
+
+
+
+
+<include file="Public:footer" />
+
+
+<script type="text/javascript" src="/public/js/lib/unslider.min.js"></script>
+<script type="text/javascript" src="/public/js/gallery/jquery.ad-gallery.js"></script> 
+<script src="http://api.map.baidu.com/components?ak=gGjGA4Ng2KusN0Lz5wsCeQ32&v=1.0"></script>
+
+<script type="text/javascript">
+	// 百度地图API功能//
+	/*
+	var map = new BMap.Map("allmap");    // 创建Map实例
+	map.centerAndZoom(new BMap.Point({$storeInfo.coordinate}), 18);  // 初始化地图,设置中心点坐标和地图级别
+	map.addControl(new BMap.MapTypeControl());   //添加地图类型控件
+	map.enableScrollWheelZoom(false);     //开启鼠标滚轮缩放*/
+</script>
+
+<script type="text/javascript">
+
+  $(function() {
+    var galleries = $('.ad-gallery').adGallery({width:550,height:360,effect:'fade',loader_image:'/public/js/gallery/loader.gif'});
+  });
+  
+  
+	if(window.chrome){$('.slider li').css('background-size', '100% 100%');}
+	$('.slider').unslider({
+		speed: 500,               //  滚动速度
+		delay: 3000,              //  动画延迟
+		complete: function() {},  //  动画完成的回调函数
+		keys: true,               //  启动键盘导航
+		dots: true,               //  显示点导航
+		fluid: true               //  支持响应式设计
+	});
+	// 左右控制js
+	var unslider = $('.slider').unslider();
+	$('.unslider-arrow').click(function(){
+		var fn = this.className.split(' ')[1];
+		unslider.data('unslider')[fn]();
+	});
+
+</script>
+ <script type="text/javascript">
+var _mvq = _mvq || [];
+_mvq.push(['$setAccount', 'm-88304-0']);
+_mvq.push(['$setGeneral', '', '', /*用户名*/ 'mba_virtual@mediav.com', /*用户id*/ 'm-88304-0']);
+_mvq.push(['$logConversion']);
+(function() {
+    var mvl = document.createElement('script');
+    mvl.type = 'text/javascript'; mvl.async = true;
+    mvl.src = ('https:' == document.location.protocol ? 'https://static-ssl.mediav.com/mvl.js' : 'http://static.mediav.com/mvl.js');
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(mvl, s); 
+})();
+
+</script>  
+<script type="text/javascript">
+var _mvq = window._mvq || []; 
+window._mvq = _mvq;
+_mvq.push(['$setAccount', 'm-88304-0']);
+
+_mvq.push(['$setGeneral', '', '', /*用户名*/ 'mba_virtual@mediav.com', /*用户id*/ 'm-88304-0']);
+_mvq.push(['$logConversion']);
+
+_mvq.push(['setPageUrl', /*单品着陆页url*/ '']);	//如果不需要特意指定单品着陆页url请将此语句删掉
+_mvq.push(['$addGoods',  /*分类id*/ '', /*品牌id*/ '', /*商品名称*/ '',/*商品ID*/ '',/*商品售价*/ '', /*商品图片url*/ '', /*分类名*/ '', /*品牌名*/ '', /*商品库存状态1或是0*/ '', /*网络价*/ '',/*收藏人数*/ '', /*商品下架时间*/ '']);
+_mvq.push(['$addPricing', /*价格描述*/ '']);
+_mvq.push(['$logData']);
+</script>
+
+
+<script type="text/javascript">
+var _mvq = window._mvq || []; 
+window._mvq = _mvq;
+_mvq.push(['$setAccount', 'm-88304-0']);
+_mvq.push(['$setGeneral', '', '', /*用户名*/ 'mba_virtual@mediav.com', /*用户id*/ 'm-88304-0']);
+_mvq.push(['$logConversion']);
+_mvq.push(['$addOrder',/*订单号*/ '', /*订单金额*/ '']);
+_mvq.push(['$addItem', /*订单号*/ '', /*商品id*/ '', /*商品名称*/ '', /*商品价格*/ '', /*商品数量*/ '', /*商品页url*/ '', /*商品页图片url*/ '']);
+_mvq.push(['$logData']);
+</script>
+<script type="text/javascript">
+var _mvq = window._mvq || []; 
+window._mvq = _mvq;
+_mvq.push(['$setAccount', 'm-88304-0']);
+_mvq.push(['$setGeneral', '', '', /*用户名*/ 'mba_virtual@mediav.com', /*用户id*/ 'm-88304-0']);
+_mvq.push(['$logConversion']);
+_mvq.push(['$addSearchResult', /*搜素关键词*/ '', /*搜索结果数*/ '']);
+_mvq.push(['$logData']);
+</script>
+
+
+<script type="text/javascript">
+var _mvq = window._mvq || []; 
+window._mvq = _mvq;
+_mvq.push(['$setAccount', 'm-88304-0']);
+_mvq.push(['$setGeneral', '', '', /*用户名*/ 'mba_virtual@mediav.com', /*用户id*/ 'm-88304-0']);
+_mvq.push(['$logConversion']);
+
+</script>
+
+<script type="text/javascript">
+var _mvq = window._mvq || []; 
+window._mvq = _mvq;
+_mvq.push(['$setAccount', 'm-88304-0']);
+_mvq.push(['$setGeneral', '', '', /*用户名*/ 'mba_virtual@mediav.com', /*用户id*/ 'm-88304-0']);
+_mvq.push(['$logConversion']);
+_mvq.push(['$addBrand', /*品牌名称*/ '', /*品牌ID*/ '']);
+_mvq.push(['$logData']);
+</script>
+<script type="text/javascript" src="http://tajs.qq.com/gdt.php?sId=50206722" charset="UTF-8"></script>          
+<script src='http://stat.e.tf.360.cn/search/c.js?u=1309775502' language='JavaScript' ></script><script src='http://pw.cnzz.com/tongji_360.php?id=1253515421&pid=e360&l=2' language='JavaScript' charset='gb2312'></script>
+</body> 
+</html>

@@ -1,0 +1,538 @@
+﻿<!DOCTYPE HTML>
+<html> 
+<head> 
+<meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" /> 
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" /> 
+<title>{$SiteCurentCity?$SiteCurentCity['title']:''}{$SiteConfigData.webtitle}</title> 
+<meta name="keywords" content="{$SiteConfigData.webkeyword}"/> 
+<meta name="description" content="{$SiteConfigData.webdescription}"/> 
+<link rel="Shortcut Icon" href="/public/images/favicon.ico" />
+<!--[if lt IE 9]> 
+<script type="text/javascript" src="/public/js/lib/html5.js"></script>
+<![endif]--> 
+<link href="/public/ui/css/ui.css" rel="stylesheet" type="text/css" /> 
+<link href="/public/ui/css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/public/js/lib/jquery.min.js"></script>
+<script type="text/javascript" src="/public/ui/js/ui.js"></script>
+<script type="text/javascript" src="/public/js/common/smallbanner.js"></script>
+<script type="text/javascript" src="/public/js/common/function.js"></script>
+<meta name="360-site-verification" content="33a3aebb74872840f822a12d210bcc91" />
+<meta name="baidu-site-verification" content="JwhLdfT1z1" />
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?7ecbb4cb334ad0e101a161e2acf81899";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</head> 
+<body>
+
+
+<include file="Public:daohang" />
+
+
+<!--start顶部-->
+<div class="hometop wp">
+	<div class="menu">
+        <div class="menu_list category-nav-bar" style="position:relative;">
+            <dl class="clearfix" id="brandpanel">
+                <dt><span class="title">品牌</span></dt>
+                <volist name="redBrand" id="vo" offset="0" length='8'>
+					<dd><a href="__APP__/car/{$vo.pinyin}/">{$vo.title}</a></dd>
+				</volist>
+                <dd><a href="__APP__/car/" class="more">更多</a></dd>
+			
+				<div class="panels" style="display: none; top: 0px;">
+					<div class="item-border"></div>
+					<div class="panel brand-panel show" data-id="brand-panel" style="opacity: 1; z-index: 2;">    
+					<div class="grid-c-l all-brand">
+						<h3>所有品牌</h3>
+						<ul class="unstyled clearfix">
+							<volist name="Brand_Letter" id="letter">
+								<li>
+								<span>{$letter}</span>
+								<volist name="redBrand" id="vo">
+									<eq name="letter" value="$vo['letter']">
+									<a href="__APP__/car/{$vo.pinyin}/" title="{$vo.title}">{$vo.title}</a>
+									</eq>
+								</volist>
+								</li>
+							</volist>
+						</ul>
+					</div>
+					</div>
+				</div>
+            </dl>
+            <dl class="clearfix">
+                <dt><span class="title">级别</span></dt>
+				<volist name="redLevel" id="vo">
+                    <dd><a href="__APP__/car/cx{$vo.id}/">{$vo.title}</a></dd>
+                </volist>
+            </dl>
+            <dl class="clearfix price">
+                <dt><span class="title">价格</span></dt>
+				<volist name="redPrice" id="vo">
+                    <dd><a href="__APP__/car/jg{$vo.price}/">{$vo.title}</a></dd>
+                </volist>
+            </dl>
+            <dl class="clearfix price">
+                <dt><span class="title">排标</span></dt>
+				<volist name="serEsid" id="vo">
+                    <dd><a href="__APP__/car/pz{$vo.id}/">{$vo.title}</a></dd>
+                </volist>
+            </dl>
+            <dl class="last clearfix">
+                <dt><span class="title">车龄</span></dt>
+				<volist name="redYears" id="vo">
+                    <dd><a href="__APP__/car/cl{$vo.years}/">{$vo.title}</a></dd>
+                </volist>
+            </dl>
+
+				
+				
+        </div>
+    </div>
+    
+    <div class="center" style="margin-top:1px;overflow:hidden;">
+    	<section class="slider boxRadius cl has-dots">
+          <ul class="tabcon">
+		  <volist name="homeBanner" id="vo">
+            <li><img  alt="二手车加盟" src="{:C('WEB_RES_URL')}{$vo.img_url}" /></li>
+          </volist>
+          </ul>
+         </section>
+    </div>
+    
+    <div class="right fr"><img alt="捷和服务承诺" src="{:C('WEB_BASE_URL')}public/images/homeleftbar.jpg"></div>
+    <div class="clearfix"></div>
+</div>
+<!--end顶部-->
+
+
+<notempty name="redCar">
+<!--特价专区-->
+<div class="wp">
+	<div class="home-sub-title">
+    	<h3>好车推荐</h3>
+    </div>
+    	<div class="home-car-list4">
+            <ul>
+				<volist name="redCar" id="vo">
+				<li>                	
+				    <a href="__APP__/car/detail/{$vo.id}.html">
+                    <div class="pic">
+                        <img class="js_scroll" alt="{$vo.title}" src="{:C('WEB_IMG_URL')}thumb/w/{$vo.cover|extend},c_fill,h_180,w_265.{$vo.cover|extend=1}" style="display: inline;">
+                    </div>
+                    <h4>{$vo.title}</h4>
+                    <div class="other clearfix">
+                        <div>{$vo['regtime'] ? date('Y-m', strtotime($vo['regtime'])) : '未上牌'} | {$vo.mileage}万公里 | {$vo.gearbox} | {$vo.esid_id|get_esid}</div>
+                    </div>
+					<div class="other clearfix">
+						<div class="shoufu"><eq name="vo.shoufu" value="">一口价<else/>首付￥{$vo.shoufu}万</eq></div>
+                        <div class="price">￥{$vo.price}万</div>
+                    </div>
+                    </a>
+                </li>
+				</volist>
+                <div class="clearfix"></div>
+            </ul>
+        </div>
+</div>
+<!--特价专区-->
+</notempty>
+
+
+<notempty name="redBrand">
+<!--排行榜-->
+<div class="wp hoem-ranking">
+	<ul>
+		<volist name="redBrand" id="vo" key="k" offset="0" length='10'>
+		<li <eq name="k" value="10">class="last"</eq>>
+			<a href="__APP__/car/{$vo.pinyin}/" title="二手{$vo.title}"  >
+				<span class="title"><i>{$k}</i>{$vo.title}</span>
+				<span class="img"><img title="{$vo.title}"  alt="{$vo.title}二手车" src="{:C('WEB_RES_URL')}{$vo.logo}" /></span>
+			</a>
+		</li>
+		</volist>
+	</ul>
+	<div class="clearfix"></div>
+</div>
+<!--排行榜-->
+</notempty>
+
+
+
+<!--最新车源-->
+<div class="wp c_white mt-20">
+    	<div class="l cl_left_1"  id="subscribe_car">
+        	<div class="home-sub-title">
+                <h3 class="l"><a href="__APP__/car/"</a> 最新车源</h3>
+                <nav class="subscribe_car cl r" id="subscribe_menu">
+                  <ul class="cl">
+                    <notempty name="newCartop8"><li class="current"><a href="javascript:void(0);">最新上架</a></li></volist>
+                    <notempty name="jingjiCartop8"><li><a href="javascript:void(0);">经济实惠</a></li></notempty>
+                    <notempty name="shishangCartop8"><li><a href="javascript:void(0);">时尚实用</a></li></notempty>
+                    <notempty name="haohuaCartop8"><li><a href="javascript:void(0);">精致豪华</a></li></notempty>
+                  </ul>
+                </nav>
+                <div class="clearfix"></div>
+            </div>
+			<notempty name="newCartop8">
+            <ul class="car-list4s">
+				<volist name="newCartop8" id="vo">
+				<li>                	
+				    <a href="__APP__/car/detail/{$vo.id}.html">
+                    <div class="pic">
+                        <img class="js_scroll" alt="{$vo.title|msubstr=0,25}" src="{:C('WEB_IMG_URL')}thumb/w/{$vo.cover|extend},c_fill,h_180,w_265.{$vo.cover|extend=1}" style="display: inline;">
+                    </div>
+                    <h4>{$vo.title|msubstr=0,25}</h4>
+                    <div class="other clearfix">
+                        <div>{$vo['regtime'] ? date('Y-m', strtotime($vo['regtime'])) : '未上牌'} | {$vo.mileage}万公里</div>
+                    </div>
+					<div class="other clearfix">
+						<div class="shoufu"><eq name="vo.shoufu" value="">一口价<else/>首付￥{$vo.shoufu}万</eq></div>
+                        <div class="price">￥{$vo.price}万</div>
+                    </div>
+                    </a>
+                </li>
+				</volist>
+                 <div class="clearfix"></div>
+            </ul>
+			</notempty>
+			<notempty name="jingjiCartop8">
+            <ul class="car-list4s" style="display:none;">
+				<volist name="jingjiCartop8" id="vo">
+				<li>                	
+				    <a href="__APP__/car/detail/{$vo.id}.html">
+                    <div class="pic">
+                        <img class="js_scroll" alt="{$vo.cover}" src="{:C('WEB_IMG_URL')}thumb/w/{$vo.cover|extend},c_fill,h_180,w_265.{$vo.cover|extend=1}" style="display: inline;">
+                    </div>
+                    <h4>{$vo.title|msubstr=0,25}</h4>
+                    <div class="other clearfix">
+                        <div>{$vo['regtime'] ? date('Y-m', strtotime($vo['regtime'])) : '未上牌'} | {$vo.mileage}万公里</div>
+                    </div>
+					<div class="other clearfix">
+						<div class="shoufu"><eq name="vo.shoufu" value="">一口价<else/>首付￥{$vo.shoufu}万</eq></div>
+                        <div class="price">￥{$vo.price}万</div>
+                    </div>
+                    </a>
+                </li>
+				</volist>
+                 <div class="clearfix"></div>
+            </ul>
+			</notempty>
+			<notempty name="shishangCartop8">
+            <ul class="car-list4s" style="display:none;">
+				<volist name="shishangCartop8" id="vo">
+				<li>                	
+				    <a href="__APP__/car/detail/{$vo.id}.html">
+                    <div class="pic">
+                        <img class="js_scroll" alt="{$vo.cover}" src="{:C('WEB_IMG_URL')}thumb/w/{$vo.cover|extend},c_fill,h_180,w_265.{$vo.cover|extend=1}" style="display: inline;">
+                    </div>
+                    <h4>{$vo.title|msubstr=0,25}</h4>
+                    <div class="other clearfix">
+                        <div>{$vo['regtime'] ? date('Y-m', strtotime($vo['regtime'])) : '未上牌'} | {$vo.mileage}万公里</div>
+                    </div>
+					<div class="other clearfix">
+						<div class="shoufu"><eq name="vo.shoufu" value="">一口价<else/>首付￥{$vo.shoufu}万</eq></div>
+                        <div class="price">￥{$vo.price}万</div>
+                    </div>
+                    </a>
+                </li>
+				</volist>
+                 <div class="clearfix"></div>
+            </ul>
+			</notempty>
+			<notempty name="haohuaCartop8">
+            <ul class="car-list4s" style="display:none;">
+				<volist name="haohuaCartop8" id="vo">
+				<li>                	
+				    <a href="__APP__/car/detail/{$vo.id}.html">
+                    <div class="pic">
+                        <img class="js_scroll" alt="{$vo.cover}" src="{:C('WEB_IMG_URL')}thumb/w/{$vo.cover|extend},c_fill,h_180,w_265.{$vo.cover|extend=1}" style="display: inline;">
+                    </div>
+                    <h4>{$vo.title|msubstr=0,25}</h4>
+                    <div class="other clearfix">
+                        <div>{$vo['regtime'] ? date('Y-m', strtotime($vo['regtime'])) : '未上牌'} | {$vo.mileage}万公里</div>
+                    </div>
+					<div class="other clearfix">
+						<div class="shoufu"><eq name="vo.shoufu" value="">一口价<else/>首付￥{$vo.shoufu}万</eq></div>
+                        <div class="price">￥{$vo.price}万</div>
+                    </div>
+                    </a>
+                </li>
+				</volist>
+                 <div class="clearfix"></div>
+            </ul>
+			</notempty>
+        </div>
+        
+        <div class="r cl_right_1">
+        	<div class="quick-service">
+                <p class="tel clearfix"><i></i><input id="quickPhone" name="" type="text"></p>
+                <p class="addr clearfix">
+                	<i></i>
+                    <select class="s_address" id="quickCity">
+                        <option value="">请选择地区</option>
+						<volist name="SiteCityData" id="vo">
+                        <option value="{$vo.title}">{$vo.title}</option>
+                        </volist>
+                    </select>
+                </p>
+                <ul class="radiolist">
+                    <li><a href="javascript:void(0);" rel="快速卖车">快速卖车</a></li>
+                    <li><a href="javascript:void(0);" rel="寄售代卖">寄售代卖</a></li>
+                    <li><a href="javascript:void(0);" rel="抵押按揭">抵押按揭</a></li>
+					<input type="hidden" id="quickType" value="" />
+                </ul>
+                <input class="btn btn-default sender" id="quickButton" type="button" value="提交信息">
+            </div>        
+            <div class="irdingzhi">
+                
+                <a href="__APP__/customer/customized/">
+                    <dl>
+                        <dt><span>车型定制</span><em>预付定金，立省3％车款！</em></dt>
+                        <dd><img src="./public/images/dingzhi2.jpg"></dd>
+                    </dl>
+                </a>
+                <a href="__APP__/zuche/">
+                    <dl>
+                        <dt><span>我要租车</span><em>轻松用上豪车，更实惠！</em></dt>
+                        <dd><img src="./public/images/dingzhi2.jpg"></dd>
+                    </dl>
+                </a>
+            </div>
+        
+    </div>
+    <div class="clearfix"></div>
+</div>
+
+<!--最新车源-->
+
+
+
+<!--start新闻资讯-->
+<div class="wp home-bottom-news">
+	<div class="left">
+    	<div class="toptitle clearfix"><h3>捷和车讯</h3><a class="more" href="__APP__/news/cid-2.html" target="_blank">更多 &gt;</a></div>
+        <div class="clearfix"></div>
+		<ul>
+			<volist name="redArticleCx" id="vo">
+				      <li>
+				         <a href="__APP__/news/{$vo.id}.html" target="_blank" class="lpic">
+                         	<img width="80" height="68"  alt={$vo.title} src="{:C('WEB_IMG_URL')}thumb/d/{$vo.image|extend},c_fill,h_68,w_80.{$vo.image|extend=1}" />
+                         </a>
+						 <div class="rtext"><a href="__APP__/news/{$vo.id}.html" target="_blank">{$vo.title}</a>
+						 <p>时间：{$vo.addtime|date="Y-m-d",###}</p></div>
+					  </li>
+			</volist>
+		 </ul> 
+    </div>
+    <div class="video">
+    	<div class="toptitle clearfix"><h3>企业视频</h3><a class="more" href="__APP__/elegant/" target="_blank">更多 &gt;</a></div>
+
+
+<div class="videozoombox">
+
+	<div class="zoompic">
+	<volist name="redVideo" id="vo" length="1" offset="0">
+	<a href="{$vo.linkurl}" target="_blank">
+	<img src="{:C('WEB_IMG_URL')}thumb/d/{$vo.img_url|extend},c_fill,h_200,w_360.{$vo.img_url|extend=1}" width="360" height="200" alt="{$vo.title}" />
+	<p>{$vo.title}</p>
+	</a>
+	</volist>
+	</div>
+	
+	<div class="videobox">
+		<div class="arrow-btn btn-left dasabled"></div>
+		<div class="sliderbox">
+			<ul>
+			<volist name="redVideo" id="vo">
+			  <li class="current">
+			  <a vrc="{$vo.linkurl}" target="_blank" rel="{:C('WEB_IMG_URL')}thumb/d/{$vo.img_url|extend},c_fill,h_200,w_360.{$vo.img_url|extend=1}"><img src="{:C('WEB_IMG_URL')}thumb/d/{$vo.img_url|extend},c_fill,h_62,w_102.{$vo.img_url|extend=1}" width="110" height="60px" alt="{$vo.title}" /></a>
+			  </li>
+            </volist>
+			</ul>
+		</div>
+		<div class="btn-right arrow-btn"></div>
+	</div>
+	
+</div><!--slider end-->
+
+    </div>
+    <div class="right">
+    	<div class="toptitle clearfix"><h3>捷和风采</h3><a class="more" href="__APP__/news/cid-1.html" target="_blank">更多 &gt;</a></div>
+		<ul>
+			<volist name="redArticleJh" id="vo">
+				      <li>
+				         <a href="__APP__/news/{$vo.id}.html" target="_blank" class="lpic">
+                         	<img width="80" height="68" alt={$vo.title} src="{:C('WEB_IMG_URL')}thumb/d/{$vo.image|extend},c_fill,h_68,w_80.{$vo.image|extend=1}" />
+                         </a>
+						 <div class="rtext"><a href="__APP__/news/{$vo.id}.html" target="_blank">{$vo.title}</a>
+						 <p>时间：{$vo.addtime|date="Y-m-d",###}</p></div>
+					  </li>
+			</volist>
+		 </ul> 
+    </div>
+    <div class="clearfix"></div>
+</div>
+<!--end新闻资讯-->
+
+
+<include file="Public:footer" />
+
+
+<script type="text/javascript" src="/public/js/lib/unslider.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	$.fn.smallbanner(".videozoombox");
+
+    if(window.chrome){$('.slider li').css('background-size', '100% 100%');}
+    $('.slider').unslider({
+        speed: 500,               //  滚动速度
+        delay: 3000,              //  动画延迟
+        complete: function() {},  //  动画完成的回调函数
+        keys: true,               //  启动键盘导航
+        dots: true,               //  显示点导航
+        fluid: true               //  支持响应式设计
+    });
+    // 左右控制js
+    var unslider = $('.slider').unslider();
+    $('.unslider-arrow').click(function(){
+        var fn = this.className.split(' ')[1];
+        unslider.data('unslider')[fn]();
+    });
+});
+
+
+$('#brandpanel').hover(function(){
+	$('.category-nav-bar .panels').show();
+},function(){
+	$('.category-nav-bar .panels').hide();
+});
+
+
+$('#subscribe_car').find(".car-list4s").hide();
+$('#subscribe_car').find("ul.car-list4s:first").show();
+$('#subscribe_menu').find("li:first").show();
+$('#subscribe_menu').find("li").bind('click',function(){
+	$(this).addClass("current").siblings("li").removeClass("current"); 
+	var activeindex = $('#subscribe_menu').find("li").index(this);
+	$('#subscribe_car .car-list4s').hide();
+	$('#subscribe_car .car-list4s').eq(activeindex).fadeIn();
+	return false;
+});
+
+
+//快速服务
+$('.quick-service .radiolist a').click(function(){
+	$('.quick-service .radiolist a').removeClass('curent');
+	$(this).addClass('curent');
+	$('#quickType').val($(this).attr('rel'));
+});
+
+$('#quickButton').click(function(){
+	var patrn = /^(0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/;
+	var quickPhone = $('#quickPhone').val();
+	var quickCity = $('#quickCity').val();
+	var quickType = $('#quickType').val();
+	if(quickPhone == ''){
+		$('#quickPhone').focus();
+		return;
+	}else if(!patrn.exec(quickPhone)){
+		$('#quickPhone').focus();
+		return;
+	}
+	if(quickCity == ''){
+		$('#quickCity').focus();
+		return;
+	}
+	if(quickType == ''){
+		$('#quickType').focus();
+		return;
+	}
+	$.ajax({
+		type: 'post',
+		url: '__APP__/customer/quickservice/',  
+		data: {'quickPhone':quickPhone,'quickCity':quickCity,'quickType':quickType},
+		success: function(data){
+			if(data == 1){
+				Huimodal_alert('提交成功，客服人员会与您取得联系！','1000');
+			}else if(data == 2){
+				Huimodal_alert('系统忙，请稍后重试！','1000');
+			}else{
+				Huimodal_alert(data,'2000');
+			}
+		},  
+		dataType: 'text'
+	});
+});
+</script>
+
+ <script type="text/javascript">
+var _mvq = _mvq || [];
+_mvq.push(['$setAccount', 'm-88304-0']);
+
+_mvq.push(['$logConversion']);
+(function() {
+    var mvl = document.createElement('script');
+    mvl.type = 'text/javascript'; mvl.async = true;
+    mvl.src = ('https:' == document.location.protocol ? 'https://static-ssl.mediav.com/mvl.js' : 'http://static.mediav.com/mvl.js');
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(mvl, s); 
+})();
+
+</script>   
+<script type="text/javascript">
+var _mvq = window._mvq || []; 
+window._mvq = _mvq;
+_mvq.push(['$setAccount', 'm-88304-0']);
+
+_mvq.push(['$setGeneral', '', '', /*用户名*/ 'mba_virtual@mediav.com', /*用户id*/ 'm-88304-0']);
+_mvq.push(['$logConversion']);
+
+_mvq.push(['setPageUrl', /*单品着陆页url*/ '']);	//如果不需要特意指定单品着陆页url请将此语句删掉
+_mvq.push(['$addGoods',  /*分类id*/ '', /*品牌id*/ '', /*商品名称*/ '',/*商品ID*/ '',/*商品售价*/ '', /*商品图片url*/ '', /*分类名*/ '', /*品牌名*/ '', /*商品库存状态1或是0*/ '', /*网络价*/ '',/*收藏人数*/ '', /*商品下架时间*/ '']);
+_mvq.push(['$addPricing', /*价格描述*/ '']);
+_mvq.push(['$logData']);
+</script>
+
+
+<script type="text/javascript">
+var _mvq = window._mvq || []; 
+window._mvq = _mvq;
+_mvq.push(['$setAccount', 'm-88304-0']);
+_mvq.push(['$setGeneral', '', '', /*用户名*/ 'mba_virtual@mediav.com', /*用户id*/ 'm-88304-0']);
+_mvq.push(['$logConversion']);
+_mvq.push(['$addOrder',/*订单号*/ '', /*订单金额*/ '']);
+_mvq.push(['$addItem', /*订单号*/ '', /*商品id*/ '', /*商品名称*/ '', /*商品价格*/ '', /*商品数量*/ '', /*商品页url*/ '', /*商品页图片url*/ '']);
+_mvq.push(['$logData']);
+</script>
+<script type="text/javascript">
+var _mvq = window._mvq || []; 
+window._mvq = _mvq;
+_mvq.push(['$setAccount', 'm-88304-0']);
+_mvq.push(['$setGeneral', '', '', /*用户名*/ 'mba_virtual@mediav.com', /*用户id*/ 'm-88304-0']);
+_mvq.push(['$logConversion']);
+_mvq.push(['$addSearchResult', /*搜素关键词*/ '', /*搜索结果数*/ '']);
+_mvq.push(['$logData']);
+</script>
+
+
+<script type="text/javascript">
+var _mvq = window._mvq || []; 
+window._mvq = _mvq;
+_mvq.push(['$setAccount', 'm-88304-0']);
+_mvq.push(['$setGeneral', '', '', /*用户名*/ 'mba_virtual@mediav.com', /*用户id*/ 'm-88304-0']);
+_mvq.push(['$logConversion']);
+
+</script>
+<script type="text/javascript" src="http://tajs.qq.com/gdt.php?sId=50206722" charset="UTF-8"></script>  
+<a href="http://webscan.360.cn/index/checkwebsite/url/www.jh100.com"><img border="0" src="http://img.webscan.360.cn/status/pai/hash/51570277ae9f0c9d49806b03c695b5c5"/></a>       
+</body> 
+</html>

@@ -1,0 +1,9 @@
+User-Agent: Baiduspider
+Allow: //chengdu.jh100.com
+Allow: //zhengzhou.jh100.com
+Allow: //shenzhen.jh100.com/car/
+Allow: //changsha.jh100.com/car/
+Allow: //www.jh100.com/join/
+Allow: //www.jh100.com/elegant/
+Disallow: //www.jh100.com/page/about.html
+

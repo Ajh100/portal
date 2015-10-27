@@ -1,0 +1,210 @@
+﻿<!DOCTYPE HTML>
+<html> 
+<head> 
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" /> 
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" /> 
+<title>【捷和租车】_轻松用上豪车，更实惠！_jh100.com</title> 
+<meta name="keywords" content="{$SiteConfigData.webkeyword}"/> 
+<meta name="description" content="{$SiteConfigData.webdescription}"/>
+<link rel="Shortcut Icon" href="/public/images/favicon.ico" /> 
+<!--[if lt IE 9]> 
+<script type="text/javascript" src="/public/js/lib/html5.js"></script>
+<![endif]--> 
+<link href="/public/ui/css/ui.css" rel="stylesheet" type="text/css" /> 
+<link href="/public/ui/css/style.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="/public/js/lib/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="/public/ui/js/ui.js"></script>
+<script type="text/javascript" src="/public/js/lib/jquery.form.js"></script>
+<script src="/public/js/cxselect/jquery.cxselect.min.js"></script>
+<script type="text/javascript" src="/public/js/datepicker/WdatePicker.js"></script>
+<script type="text/javascript" src="/public/js/common/function.js"></script>
+
+<style>
+.zuche .zuche-form{
+  width: 360px;
+  height: 360px;
+  background: rgba(255,255,255,0.7);
+  padding: 0 0 0 30px;
+  margin-top: 20px;
+  float:right;
+  margin-right:20px;
+}
+.zuche  .zuche-form .img {
+  height: 30px;
+  width: 100px;
+  cursor:pointer;
+}
+.zuche  .zuche-form input.code {
+  width: 100px;
+}
+.zuche  .zuche-form input {
+  height: 25px;
+  width: 240px;
+}
+.zuche  .zuche-form select {
+  height: 30px;
+  width: 120px;
+}
+</style>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?7ecbb4cb334ad0e101a161e2acf81899";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</head> 
+<body class="zuche">
+
+
+<include file="Public:header" />
+
+<div class="wp">
+<nav class="breadcrumb pngfix">
+  <a href="/" class="maincolor">首页</a>
+  <span class="c_gray en">&gt;</span><a href="__APP__/zuche/">我要租车</a>
+</nav>
+</div>
+
+
+<div style="background:url(/public/images/zuche.jpg) center center no-repeat;height:400px;width:1200px;margin:0 auto;">
+
+<div class="zuche-form">
+    	<form name="form1" id="formZuche">
+       	  <table width="200" border="0" cellspacing="0" cellpadding="0">
+        	  <tbody><tr>
+        	    <td colspan="2"><h3>在线租车</h3></td>
+       	    </tr>
+        	  <tr>
+        	    <td width="80" height="40">* 选择车型</td>
+        	    <td>
+          <select id="brand" name="brand" class="w_282 valid">
+                      <option value="">选择品牌</option>
+            <volist name="carBrand" id="vo">
+                  <option value="{$vo.id}">{$vo.letter} {$vo.title}</option>
+            </volist>
+          </select>
+					<select class="w_282 valid" id="series" name="series"><option value="">选择车系</option></select>
+				</td>
+      	    </tr>
+        	  <tr>
+        	    <td height="40">* 使用类型</td>
+        	    <td>
+					<select class="city cxselect" id="use_area" name="use_area">
+					<option value="本地用车">本地用车</option><option value="外地用车">外地用车</option>
+					</select>
+				</td>
+      	    </tr>
+        	<tr>
+        	    <td height="40">* 长租短租</td>
+        	    <td>
+					<select class="city cxselect" id="use_type" name="use_type">
+					<option value="长租">长租</option><option value="短租">短租</option>
+					</select>
+				</td>
+      	    </tr>
+        	  <tr>
+        	    <td height="40">* 用车时间</td>
+        	    <td><label for="textfield2"></label>
+       	        <input readonly="readonly" onfocus="WdatePicker()" type="text" name="use_time" id="use_time"></td>
+      	    </tr>
+        	  <tr>
+        	    <td height="40">* 手机号码</td>
+        	    <td><label for="telphone"></label>
+       	        <input type="text" name="telphone" id="telphone"></td>
+      	    </tr>
+        	  <tr>
+        	    <td height="40">* 验证码</td>
+        	    <td><label for="imgcode"></label>
+       	        <input type="text" name="imgcode" class="code" id="imgcode">
+       	        <img alt="点击切换" class="img" onclick="javascript:$(this).attr('src', '/public/imgcode/' + '?time=' + Math.random());" src="/public/imgcode/" width="176" height="82"></td>
+      	    </tr>
+        	  <tr>
+        	    <td height="35">&nbsp;</td>
+        	    <td height="50">
+				<p class="mt-5">
+				<input style="height:35px; line-height:15px;" id="sendCarInfo" class="btn radius btn-large btn-block btn-primary" type="button" value="提交">
+				</p>
+				</td>
+      	    </tr>
+      	  </tbody></table>
+      </form>
+      </div>
+
+</div>
+
+
+
+
+
+
+<script type="text/javascript">
+
+$('#brand').change(function(){
+	var brandId = $(this).val();
+	$.get("/public/ajaxSeries/", { bid: brandId },
+	  function(data){
+		$('#series').html(data);;
+	});
+});
+
+$('#sendCarInfo').click(function(){
+		if($('#brand').val() == ''){
+			Huimodal_alert('请选择品牌！','1000');
+			return;
+		}
+		if($('#series').val() == ''){
+			Huimodal_alert('请选择车系！','1000');
+			return;
+		}
+		if($('#use_time').val() == ''){
+			Huimodal_alert('请选用车时间！','1000');
+			return;
+		}
+    var patrn = /^(0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/;
+		if($('#telphone').val() == ''){
+			Huimodal_alert('请填写手机号码！','1000');
+			$('#telphone').focus();
+			return;
+		}else if(!patrn.exec($('#telphone').val())){
+			Huimodal_alert('请填正确的手机号码！','1000');
+			$('#telphone').focus();
+		}
+                
+		if($('#imgcode').val() == ''){
+			Huimodal_alert('请填写验证码！','1000');
+			$('#imgcode').focus();
+			return;
+		}
+        $('#formZuche').ajaxSubmit(function(){
+            $.ajax({
+                url:"__APP__/zuche/addinfo/",
+                data:$('#formZuche').serialize(),
+                dataType:"text",
+                error:function(data){
+                    Huimodal_alert(data,'1000');
+                },
+                success:function(data){
+                    if(data == 1){
+						Huimodal_alert('发布成功客户人员会尽快与您联系！','1000');
+            location.reload();
+					}else{
+						Huimodal_alert(data,'1000');
+					}
+                }
+            });
+        });
+});
+</script>
+
+
+
+<include file="Public:footer" />
+
+</body>
+</html>

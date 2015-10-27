@@ -1,0 +1,166 @@
+﻿<!DOCTYPE HTML>
+<html> 
+<head> 
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" /> 
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" /> 
+<title>特价车源 - {$SiteCurentCity?$SiteCurentCity['title']:''}二手车_{$SiteCurentCity?$SiteCurentCity['title']:''}捷和二手车</title> 
+<meta name="keywords" content="{$SiteConfigData.webkeyword}"/> 
+<meta name="description" content="{$SiteCurentCity?$SiteCurentCity['title']:''}二手车,{$SiteCurentCity?$SiteCurentCity['title']:''}二手车交易市场"/>
+<link rel="Shortcut Icon" href="/public/images/favicon.ico" /> 
+<!--[if lt IE 9]> 
+<script type="text/javascript" src="/public/js/lib/html5.js"></script>
+<![endif]--> 
+<link href="/public/ui/css/ui.css" rel="stylesheet" type="text/css" /> 
+<link href="/public/ui/css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/public/js/lib/jquery.min.js"></script>
+<script type="text/javascript" src="/public/ui/js/ui.js"></script>
+<script type="text/javascript" src="/public/js/common/function.js"></script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?7ecbb4cb334ad0e101a161e2acf81899";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</head>
+<body>
+
+<include file="Public:header" />
+
+<div class="wp">
+<nav class="breadcrumb pngfix">
+  <a href="/" class="maincolor">首页</a>
+  <span class="c_gray en">&gt;</span><a href="__APP__/car/">{$SiteCurentCity?$SiteCurentCity['title']:''}二手车</a>
+  <span class="c_gray en">&gt;</span><a href="__APP__/car/">{$SiteCurentCity?$SiteCurentCity['title']:''}二手车交易市场</a>
+  <span class="c_gray en">&gt;</span><a href="__APP__/car/">{$SiteCurentCity?$SiteCurentCity['title']:''}特价车源</a>
+  <span class="c_gray en">&gt;</span><span class="c_gray">捷和二手车</span>
+</nav>
+</div>
+
+
+
+<!--start车源列表-->
+<div class="wp">
+    	<div class="car-list3">
+            <ul>
+				<volist name="carList" id="vo">
+				<li>
+					<a href="__APP__/car/detail/{$vo.id}.html">
+                    <div class="pic">
+                        <img class="js_scroll" alt="{$vo.title}" src="{:C('WEB_IMG_URL')}thumb/w/{$vo.cover|extend},c_fill,h_260,w_378.{$vo.cover|extend=1}" style="display: inline;">
+                    </div>
+                    <h4>{$vo.title}</h4>
+                    <div class="other clearfix">
+                        <div><label>上牌：</label>{$vo['regtime'] ? date('Y-m', strtotime($vo['regtime'])) : '未上牌'} | {$vo.mileage}万公里 | {$vo.gearbox} | {$vo.esid_id|get_esid}</div>
+                    </div>
+                    <div class="other clearfix">
+                        <div class="price">￥{$vo.specialprice}万</div>
+						<div class="price2">￥{$vo.price}万</div>
+                    </div>
+                    </a>
+                 </li>
+				</volist>
+                <div class="clearfix"></div>
+            </ul>
+        </div>
+        
+        </div>
+        
+<!--end车源列表-->
+
+
+
+<include file="Public:footer" />
+
+
+<script type="text/javascript" src="/public/js/lib/jquery.min.js"></script> 
+<script type="text/javascript">
+$(function(){
+	$('.btn-more').click(function(){
+		var parent = $(this).parent();
+		var span = $(this).find('span');
+		if(span.text()=='收起'){
+			span.text('更多');
+		}else{
+			span.text('收起');
+		}
+		$(parent).find('.ls_collapse').toggle();
+		$(parent).find('.js_more_list').toggle();
+		$(parent).parent().toggleClass("more_box");
+	});
+});
+
+function onlyInputNumber(thisItem){
+	var $this=$(thisItem);
+	var val=$this.val();
+	val=val.replace(/[^0-9]*/g,'');
+	val=$.trim(val);
+	$this.val(val);
+	return val;
+}
+
+function searchCurr(type, obj){
+	var url = document.location.href;
+	var parent = $(obj).prevAll();
+	var min = $(parent).eq(0).val();
+	var max = $(parent).eq(1).val();
+
+	switch(type){
+		case 'cheling':
+			var carurl = '__APP__/car/<neq name="urlReg.brand" value="">{$urlReg.brand}/</neq><neq name="urlReg.series" value="">{$urlReg.series}/</neq>{$urlCond|remove_search='cl',$urlReg['cl']}';
+			if(str_repeat(carurl, '-') > 0){
+				carurl = carurl.substring(0,carurl.length-1);
+			}
+			var minv = min<max ? min : max;
+			var maxv = min>max ? min : max;
+			var str = 'cl'+minv+'-'+maxv+'/';
+			if(str_repeat(url, '-')>1){
+				str = '_'+str; 
+			}
+			if(minv>0 && maxv>0 && minv<maxv){
+				window.location = carurl+str;
+			}
+			break;
+		case 'price':
+			var carurl = '__APP__/car/<neq name="urlReg.brand" value="">{$urlReg.brand}/</neq><neq name="urlReg.series" value="">{$urlReg.series}/</neq>{$urlCond|remove_search='jg',$urlReg['jg']}';
+			if(str_repeat(carurl, '-') > 0){
+				carurl = carurl.substring(0,carurl.length-1);
+			}
+			var minv = min<max ? min : max;
+			var maxv = min>max ? min : max;
+			var str = 'jg'+minv+'-'+maxv+'/';
+			if(str_repeat(url, '-')>1){
+				str = '_'+str; 
+			}
+			if(minv>0 && maxv>0 && minv<maxv){
+				window.location = carurl+str;
+			}
+			break;
+		case 'keywords' :
+			
+			break;
+		default:
+			break;
+	}
+}
+
+function str_repeat(str, sub)
+{
+   var sum=0;
+   for(var k=0;k<str.length;k++)
+   {
+       if(str.charAt(k)==sub)
+       {
+           sum+=1;
+       }
+   }
+   return sum;
+}
+</script>
+<script src='http://stat.e.tf.360.cn/search/c.js?u=1309775502' language='JavaScript' ></script><script src='http://pw.cnzz.com/tongji_360.php?id=1253515421&pid=e360&l=2' language='JavaScript' charset='gb2312'></script>
+</body>
+</html>

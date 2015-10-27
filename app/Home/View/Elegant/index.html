@@ -1,0 +1,155 @@
+﻿<!DOCTYPE HTML>
+<html> 
+<head> 
+<meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" /> 
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" /> 
+<title>捷和风采_捷和二手车_全国连锁二手车运营商_jh100.com</title> 
+<meta name="keywords" content="{$SiteConfigData.webkeyword}"/> 
+<meta name="description" content="捷和二手车·中国消费者最放心的二手车连锁运营商!行业新标3A-auto·3721质保体系的打造者!购车热线:4001516868"/> 
+<link rel="Shortcut Icon" href="/public/images/favicon.ico" /> 
+<!--[if lt IE 9]> 
+<script type="text/javascript" src="/public/js/lib/html5.js"></script>
+<![endif]--> 
+<link href="/public/ui/css/ui.css" rel="stylesheet" type="text/css" /> 
+<link href="/public/ui/css/style.css" rel="stylesheet" type="text/css" />
+<link href="/public/js/slidebox/css/jquery.slideBox.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/public/js/lib/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="/public/ui/js/ui.js"></script>
+<script type="text/javascript" src="/public/js/slidebox/js/jquery.slideBox.js"></script>
+<script type="text/javascript" src="/public/js/lib/jquery.jcarousellite.min.js"></script>
+<script type="text/javascript" src="/public/js/common/function.js"></script>
+<script type="text/javascript">
+$(function(){
+	$('#demo1').slideBox();
+	
+	$(".rollpicshow").jCarouselLite({
+		btnNext: "#hero-next",
+		btnPrev: "#hero-prev",
+		scroll: 1,
+		speed: 240,
+		circular: false,
+		visible: 6
+	});
+});
+</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?7ecbb4cb334ad0e101a161e2acf81899";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</head> 
+<body>
+
+<include file="Public:header" />
+
+<!--start捷和风采-->
+<div class="jh-show">
+	<div class="topnews">
+    	<div class="left">
+			<div id="demo1" class="slideBox">
+			  <ul class="items">
+				<volist name="picNews" id="vo">
+				<li>
+					<a href="__APP__/news/{$vo.id}.html" title="{$vo.title}">
+						<img alt="{$vo.title}" width="410" height="250" src="{:C('WEB_RES_URL')}{$vo.image}">
+					</a>
+				</li>
+				</volist>
+			  </ul>
+			</div>
+        </div>
+        <div class="center">
+        	<ul>
+				<volist name="redNews" id="vo">
+            	<li>
+				<h3><a href="__APP__/news/{$vo.id}.html">{$vo.title}</a></h3>
+				<p><a href="__APP__/news/{$vo.id}.html"><eq name="vo.description" value="">{$vo.content|strip_tags|msubstr=0,60}<else/>{$vo.description|msubstr=0,60}</eq></a></p>
+				</li>
+				</volist>
+            </ul>
+      </div>
+        <div class="right">
+        	<a href="#"><img src="/public/images/ad/show01.jpg"></a>
+            <a href="#"><img src="/public/images/ad/show02.jpg"></a>
+            <a href="#"><img src="/public/images/ad/show03.jpg"></a>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    
+    <div class="activity">
+    	<h3>精彩活动</h3>
+        <ul>
+			<volist name="redActive" id="vo">
+        	<li>
+            	<div class="left">
+                	<a href="__APP__/news/{$vo.id}.html"><img alt="{$vo.title}" src="{:C('WEB_RES_URL')}{$vo.image}"></a>
+                </div>
+				<div class="right">
+                    <h3>{$vo.title}</h3>
+                    <p><eq name="vo.description" value="">{$vo.content|strip_tags|msubstr=0,100}<else/>{$vo.description|msubstr=0,100}</eq></p>
+                    <p class="times">{$vo.addtime|date="Y-m-d",###}</p>
+                </div>
+            </li>
+        	</volist>
+        </ul>
+        <div class="clearfix"></div>
+    </div>
+    
+    <div class="hero">
+    	<h3>捷和荣誉</h3>
+        <div class="rollpic cl">
+          <a href="javascript:void(0)" class="prev" id="hero-prev"></a>
+          <div class="rollpicshow" style="box-shadow: 2px 2px 5px #cecece;border-radius:1em;">
+            <ul>
+			  <volist name="redHonour" id="vo">
+              <li><img width="154" height="90" title="" src="{:C('WEB_RES_URL')}{$vo.img_url}"></li>
+              </volist>
+           </ul>
+          </div>
+          <a href="javascript:void(0)" class="next" id="hero-next"></a>
+        </div>
+    </div>
+    
+    
+    <div class="photolist">
+    	<h3>公司实拍</h3>
+            <ul>
+			
+               <li><a href="http://chengdu.jh100.com/car/" ><img title="捷和成都分公司" style="width:222px;height:140px;box-shadow: 2px 2px 5px #cecece;  border-radius:1em;" src="http://res.jh100.com/2015-03-25/5512545a32629.jpg"></a><br/><p>捷和成都分公司</p></li>
+			   <li><a href="http://zhengzhou.jh100.com/car/" ><img title="捷和郑州分公司" style="width:222px;height:140px;box-shadow: 2px 2px 5px #cecece;  border-radius:1em;" src="http://res.jh100.com/2015-03-25/5512547ad4a13.jpg"></a><br/><p>捷和郑州分公司</p></li>
+			   <li><a href="http://changsha.jh100.com/car/" ><img title="捷和长沙分公司" style="width:222px;height:140px;box-shadow: 2px 2px 5px #cecece;  border-radius:1em;" src="http://res.jh100.com/2015-03-25/5512548fcc16d.jpg"></a><br/><p>捷和长沙分公司</p></li>
+			   <li><a href="http://shenzhen.jh100.com/car/" ><img title="深圳总公司" style="width:222px;height:140px;box-shadow: 2px 2px 5px #cecece;  border-radius:1em;" src="http://res.jh100.com/2015-03-25/551254d50bc80.jpg"></a><br/><p>深圳总公司</p></li>
+			   <li><a href="http://chengdu.jh100.com/car/" ><img title="公司实拍1" style="width:222px;height:140px;box-shadow: 2px 2px 5px #cecece;  border-radius:1em;" src="http://res.jh100.com/2015-03-25/5512550773efd.jpg"></a><br/><p>捷和成都分公司</p></li>
+		
+           </ul>
+           <div class="clearfix"></div>
+    </div>
+    
+    
+    <div class="photolist">
+    	<h3>企业视频</h3>
+            <ul>
+			<volist name="redVideo" id="vo">
+              <li><a title="{$vo.title}" target="_blank" href="{$vo.linkurl}"><img title="{$vo.title}" style="width:222px;height:140px;" src="{:C('WEB_RES_URL')}{$vo.img_url}"></a><br /><a href="#">{$vo.title|msubstr=0,14}</a></li>
+            </volist>
+           </ul>
+           <div class="clearfix"></div>
+    </div>
+    
+    
+</div>
+<!--end捷和风采-->
+
+
+
+<include file="Public:footer" />
+
+<script src='http://stat.e.tf.360.cn/search/c.js?u=1309775502' language='JavaScript' ></script><script src='http://pw.cnzz.com/tongji_360.php?id=1253515421&pid=e360&l=2' language='JavaScript' charset='gb2312'></script>
+</body>
+</html>

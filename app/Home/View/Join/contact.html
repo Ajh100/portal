@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=9" />
+    <title>捷和二手车联盟,诚信加盟,专业,简单,可靠</title>
+    <meta name="keywords" content="&lt;%=k.keywords %>" />
+    <meta name="description" content="&lt;%=k.description %>" />
+    <link href="{:C('WEB_BASE_URL')}public/join/webcss/style.css" rel="stylesheet" />
+    <script src="{:C('WEB_BASE_URL')}public/join/WebJs/jquery-1.8.1.min.js"></script>
+    <script src="{:C('WEB_BASE_URL')}public/join/WebJs/jquery.lazyload.js"></script>
+    
+   <style>
+    .liuyan{font-size:18px; margin-top:10px;color:black }
+    .liuyan li{ list-style:none;height:350px; }
+    .liuyanoli{width:600px;margin-left:30px;}
+    .liuyantli{width:400px; border-left:1px dashed #8a8a8a;}
+    .liuyanolispan{ font-size:14px; color:#8a8a8a;}
+    .liuyanspanxing{ font-size:20px; color:#F00;}
+    input{ width:250px;height:25px; margin:5px 0;}
+    textarea{width:400px; height:100px; margin:5px 0;}
+    select{ height:25px; margin:5px 0;}
+    #dome li{margin-top:10px;font-size:14px;margin-left:10px}
+	.jm-p1{font-size:36px;text-align:center;color:black}
+    .jm-p3{font-size:16px;margin-left:35px}
+    .sq{background:#fee068;height:650px;overflow:hidden}
+    .msgcontent{background:#FFF;border:1px solid #f3d86b;height:400px}
+    .redtxt{font-size:18px;text-align:right;color:#ff3600;font-weight:bold;margin-right:45px}   
+</style>
+</head>
+<body>
+    <div class="warp">
+        <div id="div1">
+        <ul class="jmfy">
+            <li style="width:214px;cursor:pointer;" onclick="javascript:window.location.href='/';"></li>
+            <li style="width:6px;height:47px;background:url({:C('WEB_BASE_URL')}public/join/webimages/fenge.png) center no-repeat;"></li>
+            <li><a href="__APP__/join/" style="float: left;">联盟首页</a></li>
+            <li style="width:6px;height:47px;background:url({:C('WEB_BASE_URL')}public/join/webimages/fenge.png) center no-repeat;"></li>
+            <li><a href="__APP__/join/about/" style="float: left;">了解捷和</a></li>
+            <li style="width:6px;height:47px;background:url({:C('WEB_BASE_URL')}public/join/webimages/fenge.png) center no-repeat;"></li>
+            <li><a href="__APP__/join/super/" style="float: left;">平台优势</a></li>
+            <li style="width:6px;height:47px;background:url({:C('WEB_BASE_URL')}public/join/webimages/fenge.png) center no-repeat;"></li>
+            <li><a href="__APP__/join/resource/" style="float: left;">资源优势</a></li>
+            
+            <li style="width:6px;height:47px;background:url({:C('WEB_BASE_URL')}public/join/webimages/fenge.png) center no-repeat;"></li>
+            <li><a href="__APP__/join/contact/" style="float: left;">联盟咨询</a></li>
+            <li style="width:6px;height:47px;background:url({:C('WEB_BASE_URL')}public/join/webimages/fenge.png) center no-repeat;"></li>
+        </ul>
+        </div>
+        <div>
+    <div style="background: url({:C('WEB_BASE_URL')}public/join/webimages/bodypng.png) repeat; padding: 0">
+        <div style="width: 1024px; margin: 0 auto; background-color: #ffffff; cursor: pointer;">
+            <div style="height:10px;"></div>
+            
+    <script>
+        $(function () {
+            $("#city").citySelect();
+            $("li:odd").css("color","black");
+        })
+        function res() {
+            $("#city").citySelect();
+        }
+    </script>
+  <div class="sq">
+     <p class="jm-p1">如果你对此项目有兴趣,请留言或来电咨询</p>
+      <p class="redtxt">联盟电话：400-151-6868</p>
+     <p class="jm-p3">填写信息必需如实填写！* 号为必填项</p>
+   <div class="msgcontent">
+    <div style="height:350px;float:left;">
+       
+    <ul class="liuyan" " >
+      	<li class="liuyanoli">
+        	<form>
+          		<table>
+                    <tr>
+                        <td align="right"><span class="liuyanspanxing">*&nbsp;</span>姓&nbsp;&nbsp;名:</td>
+                        <td align="left"><input type="text" class="name"/><span class="liuyanolispan">&nbsp;&nbsp;您的真实姓名</span></td>
+                    </tr>
+                    <tr>
+                        <td align="right"><span class="liuyanspanxing">*&nbsp;</span>手&nbsp;&nbsp;机:</td>
+                        <td align="left"><input type="text" class="s_tel"/><span class="liuyanolispan">&nbsp;&nbsp;请填写您的手机号码</span></td>
+                    </tr>
+                    <tr>
+                        <td align="right">邮&nbsp;&nbsp;箱:</td>
+                        <td align="left"><input type="text" class="email"/><span class="liuyanolispan">&nbsp;&nbsp;请正确填写邮箱</span></td>
+                    </tr>
+                    <tr>
+                        <td align="right"><span class="liuyanspanxing">*&nbsp;</span>地&nbsp;&nbsp;址:</td>
+                        <td align="left">
+                            <div id="city"> 
+                                <select class="prov"></select>  
+                                <select class="city" disabled="disabled"></select> 
+                                <select class="dist" disabled="disabled"></select> 
+                            <span class="liuyanolispan">&nbsp;&nbsp;与您联系的重要方式</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">留&nbsp;&nbsp;言:</td>
+                        <td align="left"><textarea class="message"></textarea></td>
+                    </tr>
+                    <tr>
+                    	<td></td>
+                        <td>
+                        	<input type="button" class="s_submit" style="width:100px; height:30px; background-color:#fea00a;font-size:18px; font-weight:400;" value="发送" />
+                            <input type="reset" onclick="res()" style="width:100px; height:30px; background-color:#1890f1;font-size:18px; font-weight:400;" value="重填" />
+                        </td>
+                    </tr>
+                </table>
+              </form>
+        </li>
+      </ul>
+        </div>
+       <div style="float:left;width:395px;position:relative;margin-top:18px;margin-left:-15px">
+           <span class="liuyan">在线留言</span><hr style="width:365px;margin-left:-8px;margin-top:-2px"/>
+           <div id="dome" style="height:280px;overflow:hidden;">
+           <div id="dome1">
+               <ul>
+                   <li style="font-weight:bold">项目很好，需要更多了解，请联系我</li>
+                   <li><span style="color:#006699">张先生</span>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:black">电话:152********</span>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:black"> 2014-12-23</span></li>
+                   <li style="font-weight:bold">请给我打电话，我想详细了解</li>
+                   <li><span style="color:#006699">田先生</span>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:black">电话：139********</span>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:black">2014-12-23</span></li>
+                   <li style="font-weight:bold">请寄资料给我</li>
+                   <li><span style="color:#006699">王先生</span>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:black">电话：158********</span>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:black">2014-12-22</span></li>
+                   <li style="font-weight:bold">想加盟，感兴趣</li>
+                   <li><span style="color:#006699">张化</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:black">电话：187********</span>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:black">2014-12-18</span></li>
+                   <li style="font-weight:bold">请来电，我想咨询</li>
+                   <li><span style="color:#006699">王先生</span>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:black">电话：137********</span>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:black">2014-11-15</span></li>
+                   <li style="font-weight:bold">具体的加盟事宜是怎样的</li>
+                   <li><span style="color:#006699">李先生</span>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:black">电话：150********</span>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:black">2014-11-08</span></li>                
+               </ul>
+               </div>
+               <div id="dome2"></div>
+          </div>
+            <div style="float:left;height:80px"></div>
+       </div>
+    </div>
+  </div>
+    <script type="text/javascript">
+        jm = 4;
+        $(".s_submit").click(function () {
+            var s = {};
+            s.page = "jiamenge";
+            s.name = $(".name").val();
+            s.tel = $(".s_tel").val();
+            s.address = $(".prov").val() + $(".city").val() + $(".dist").val();
+            s.message = $(".message").val();
+            s.email = $(".email").val();
+            //支持手机号码，3-4位区号8位直播号码
+            var modeltel = /(^(\d{3,4}-)?\d{7,8})$|1(3|4|5|8)\d{9}$/;
+            var modelemail = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
+            if (s.name.trim() == "")
+                alert("请填写姓名");
+            else if (s.tel.trim() == '' || s.tel == undefined)
+                alert("请填写电话");
+            else if (!modeltel.test(s.tel))
+                alert('请输入有效的联系电话！');
+            else if(s.email.trim()!="")
+                if(!modelemail.test(s.email))
+                    alert("请输入有效的邮箱");
+            else {
+                $.ajax({
+                    url: "tools/service.ashx",
+                    data: s,
+                    type: "POST",
+                    success: function (e) {
+                        //$(".s_submit").attr("disabled", "disabled");
+                        alert(e);
+                    }
+                });
+            }
+        });
+        var speed = 40
+        var demo = document.getElementById("dome");
+        var demo2 = document.getElementById("dome2");
+        var demo1 = document.getElementById("dome1");
+        demo2.innerHTML = demo1.innerHTML
+        function Marquee() {
+            if (demo2.offsetTop - demo.scrollTop <= 0)
+                demo.scrollTop -= demo1.offsetHeight
+            else {
+                demo.scrollTop++
+            }
+        }
+        var MyMar = setInterval(Marquee, speed)
+        demo.onmouseover = function () { clearInterval(MyMar) }
+        demo.onmouseout = function () { MyMar = setInterval(Marquee, speed) }
+        
+    </script>
+
+        </div>
+        <div style="margin-left:12%;background-color:#ffffff;width:1024px" class="bdsharebuttonbox"><a class="bds_more" href="#" data-cmd="more"></a><a title="分享到QQ空间" class="bds_qzone" href="#" data-cmd="qzone"></a><a title="分享到新浪微博" class="bds_tsina" href="#" data-cmd="tsina"></a><a title="分享到腾讯微博" class="bds_tqq" href="#" data-cmd="tqq"></a><a title="分享到人人网" class="bds_renren" href="#" data-cmd="renren"></a><a title="分享到微信" class="bds_weixin" href="#" data-cmd="weixin"></a></div>
+        <script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "2", "bdMiniList": false, "bdPic": "", "bdStyle": "0", "bdSize": "16" }, "share": {} }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];</script>
+        <div style="background:url({:C('WEB_BASE_URL')}public/join/webimages/mainbotex.png) bottom;height:300px;">
+            <div style="height:135px;width: 1024px;margin: 0 auto;background-color:#ffffff;"></div>
+            <div style="width: 1024px;margin: 0 auto; background:url({:C('WEB_BASE_URL')}public/join/webimages/mainbot.jpg) center no-repeat; height:165px;"></div>
+        </div>
+
+    </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(function () {
+            $(".jmfy li a").eq(jm).css("color", "#fadb23").css("background", "url({:C('WEB_BASE_URL')}public/join/webimages/daohangliang.png) no-repeat center");
+            $(".jmfy li a").not($(".jmfy li a").eq(jm)).hover(
+                function () { $(this).css("color", "#fadb23"); },
+                function () { $(this).css("color", "#fff"); }
+            );
+        })
+    </script>
+   
+              
+  <script type="text/javascript"> var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://"); document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F7ecbb4cb334ad0e101a161e2acf81899' type='text/javascript'%3E%3C/script%3E")) </script>            
+</body>
+      <div style="display:none">
+        <script type="text/javascript">
+            var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+            document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F7ecbb4cb334ad0e101a161e2acf81899' type='text/javascript'%3E%3C/script%3E"));
+        </script>
+    </div>
+</html>

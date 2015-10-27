@@ -1,0 +1,192 @@
+﻿<!DOCTYPE HTML>
+<html> 
+<head> 
+<meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" /> 
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" /> 
+<title>我要卖车 _深圳捷和二手车_全国连锁二手车运营商_jh100.com</title> 
+<meta name="keywords" content="{$SiteConfigData.webkeyword}"/> 
+<meta name="description" content="卖车找捷和是最专业的卖车网站，买卖双方自主交易，更有二手车拍卖、寄卖、置换等多种卖车方式任您选择。卖车找捷和，卖车好帮手，卖二手车就来捷和二手车"/>
+<link rel="Shortcut Icon" href="/public/images/favicon.ico" /> 
+<!--[if lt IE 9]> 
+<script type="text/javascript" src="/public/js/lib/html5.js"></script>
+<![endif]--> 
+<link href="/public/ui/css/ui.css" rel="stylesheet" type="text/css" /> 
+<link href="/public/ui/css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/public/js/lib/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="/public/ui/js/ui.js"></script>
+<script type="text/javascript" src="/public/js/lib/jquery.form.js"></script>
+<script src="/public/js/cxselect/jquery.cxselect.min.js"></script>
+<script type="text/javascript" src="/public/js/datepicker/WdatePicker.js"></script>
+<script type="text/javascript" src="/public/js/common/function.js"></script>
+</head>
+<body>
+
+<include file="Public:header" />
+
+<div class="wp">
+<nav class="breadcrumb pngfix">
+  <a href="/" class="maincolor">首页</a>
+  <span class="c_gray en">&gt;</span><a href="#">二手车</a>
+  <span class="c_gray en">&gt;</span><span class="c_gray">捷和二手车</span>
+</nav>
+</div>
+
+
+
+<!--start买车-->
+<div class="sell-page">
+  <div class="wp">
+	<div class="checkbox">
+    	<form name="form1" id="formSell">
+       	  <table width="200" border="0" cellspacing="0" cellpadding="0">
+        	  <tr>
+        	    <td colspan="2"><h3>填写您的爱车信息</h3></td>
+       	    </tr>
+        	  <tr>
+        	    <td width="80" height="40">* 出售车辆</td>
+        	    <td>
+					<select id="brand" name="brand" class="w_282 valid">
+	                    <option value="">选择品牌</option>
+						<volist name="carBrand" id="vo">
+			            <option value="{$vo.id}">{$vo.letter} {$vo.title}</option>
+						</volist>
+		            </select>
+					<select class="w_282 valid" id="series" name="series"><option value="">选择车系</option></select>
+				</td>
+      	    </tr>
+        	  <tr>
+        	    <td height="40">* 车辆所在地</td>
+        	    <td>
+				<div id="city_china">
+					<select class="province cxselect" disabled="disabled" id="province" name="province"></select>
+					<select class="city cxselect" disabled="disabled" id="city" name="city"></select>
+				</div>
+				</td>
+      	    </tr>
+        	  <tr>
+        	    <td height="40">* 行驶里程</td>
+        	    <td><label for="miles"></label>
+       	        <input type="text" name="miles" id="miles"></td>
+      	    </tr>
+        	  <tr>
+        	    <td height="40">* 购买时间</td>
+        	    <td><label for="textfield2"></label>
+       	        <input readonly="readonly" onfocus="WdatePicker({dateFmt:'yyyy年M月',maxDate:'2015年3月'})" type="text" name="buytime" id="buytime"></td>
+      	    </tr>
+        	  <tr>
+        	    <td height="40">* 手机号码</td>
+        	    <td><label for="telphone"></label>
+       	        <input type="text" name="telphone" id="telphone"></td>
+      	    </tr>
+        	  <tr>
+        	    <td height="40">* 验证码</td>
+        	    <td><label for="imgcode"></label>
+       	        <input type="text" name="imgcode" class="code" id="imgcode">
+       	        <img alt="点击切换" class="img" onclick="javascript:$(this).attr('src', '__APP__/public/imgcode/' + '?time=' + Math.random());" src="__APP__/public/imgcode/" width="176" height="82"></td>
+      	    </tr>
+        	  <tr>
+        	    <td height="35">&nbsp;</td>
+        	    <td height="50">
+				<p class="mt-5">
+				<input style="height:35px; line-height:15px;" id="sendCarInfo" class="btn radius btn-large btn-block btn-primary" type="button" value="提交">
+				</p>
+				</td>
+      	    </tr>
+      	  </table>
+      </form>
+      </div>
+    </div>
+</div>
+
+    
+<div class="selltel"></div>
+<div class="wp"><img src="/public/images/sell-service.jpg" /></div>
+<div class="wp"><img src="/public/images/3auto.jpg" /></div>
+<!--end买车-->
+
+
+
+<include file="Public:footer" />
+
+
+
+<script type="text/javascript">
+$.cxSelect.defaults.url = '/public/js/cxselect/cityData.min.json';
+$('#city_china').cxSelect({
+	selects: ['province', 'city']
+});
+$('#brand').change(function(){
+	var brandId = $(this).val();
+	$.get("__APP__/public/ajaxSeries/", { bid: brandId },
+	  function(data){
+		$('#series').html(data);;
+	});
+});
+
+$('#sendCarInfo').click(function(){
+		if($('#brand').val() == ''){
+			Huimodal_alert('请选择品牌！','1000');
+			return;
+		}
+		if($('#series').val() == ''){
+			Huimodal_alert('请选择车系！','1000');
+			return;
+		}
+		if($('#province').val() == 0){
+			Huimodal_alert('请选择省份！','1000');
+			return;
+		}
+		if($('#city').val() == 0){
+			Huimodal_alert('请选择城市！','1000');
+			$(this).focus();
+			return;
+		}
+		if($('#miles').val() == ''){
+			Huimodal_alert('请填写行驶里程！','1000');
+			$('#miles').focus();
+			return;
+		}
+		if($('#buytime').val() == ''){
+			Huimodal_alert('请选择购买时间！','1000');
+			return;
+		}
+                var patrn = /^(0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/;
+		if($('#telphone').val() == ''){
+			Huimodal_alert('请填写手机号码！','1000');
+			$('#telphone').focus();
+			return;
+		}else if(!patrn.exec($('#telphone').val())){
+			Huimodal_alert('请填挣钱的手机号码！','1000');
+			$('#telphone').focus();
+		}
+                
+		if($('#imgcode').val() == ''){
+			Huimodal_alert('请填写验证码！','1000');
+			$('#imgcode').focus();
+			return;
+		}
+        $('#formSell').ajaxSubmit(function(){
+            $.ajax({
+                url:"__APP__/customer/addSellCar/",
+                data:$('#formSell').serialize(),
+                dataType:"text",
+                error:function(data){
+                    Huimodal_alert(data,'1000');
+                },
+                success:function(data){
+                    if(data == 1){
+						Huimodal_alert('发布成功客户人员会尽快与您联系！','1000');
+						location.reload();
+					}else{
+						Huimodal_alert(data,'1000');
+					}
+                }
+            });
+        });
+});
+</script>
+
+<script src='http://stat.e.tf.360.cn/search/c.js?u=1309775502' language='JavaScript' ></script><script src='http://pw.cnzz.com/tongji_360.php?id=1253515421&pid=e360&l=2' language='JavaScript' charset='gb2312'></script>
+</body>
+</html>
