@@ -7,16 +7,16 @@
 <title>{$SiteCurentCity['title']}二手{$carData['title']}_捷和二手车</title> 
 <meta name="keywords" content="{$carBrand['title']}"> 
 <meta name="description" content="{$SiteCurentCity['title']}{$carData['title']},行驶{$carData['mileage']}万公里,捷和二手车为您提供最真实的二手{$carBrand['title']}报价,最详细的{$carBrand['title']}车源情况">
-<link rel="Shortcut Icon" href="/public/images/favicon.ico" /> 
+<link rel="Shortcut Icon" href="__PUBLIC__/images/favicon.ico" /> 
 <!--[if lt IE 9]> 
-<script type="text/javascript" src="/public/js/lib/html5.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/lib/html5.js"></script>
 <![endif]--> 
-<link href="/public/ui/css/ui.css" rel="stylesheet" type="text/css" /> 
-<link href="/public/ui/css/style.css" rel="stylesheet" type="text/css" />
-<link href="/public/js/gallery/jquery.ad-gallery.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="/public/js/lib/jquery.min.js"></script>
-<script type="text/javascript" src="/public/ui/js/ui.js"></script>
-<script type="text/javascript" src="/public/js/common/function.js"></script>
+<link href="__PUBLIC__/ui/css/ui.css" rel="stylesheet" type="text/css" /> 
+<link href="__PUBLIC__/ui/css/style.css" rel="stylesheet" type="text/css" />
+<link href="__PUBLIC__/js/gallery/jquery.ad-gallery.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="__PUBLIC__/js/lib/jquery.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/ui/js/ui.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/common/function.js"></script>
 </head> 
 <body>
 
@@ -127,13 +127,14 @@
             </div>
             <div class="outLinkBody">
                     	<div class="fl blank">
-                        	<img src="/public/images/telcar.jpg">
+                        	<img src="__PUBLIC__/images/telcar.jpg">
                             {$saleMan.telphone}
                             {$saleMan.nickname}
                         </div>
             </div>
             <div class="tBody">
-				<img src="/public/images/3721.png" />
+				<img src="__PUBLIC__/images/3721.png" />
+        
             </div>
     </div>
     <div class="clearfix"></div>
@@ -278,8 +279,8 @@
 <include file="Public:footer" />
 
 
-<script type="text/javascript" src="/public/js/lib/unslider.min.js"></script>
-<script type="text/javascript" src="/public/js/gallery/jquery.ad-gallery.js"></script> 
+<script type="text/javascript" src="__PUBLIC__/js/lib/unslider.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/gallery/jquery.ad-gallery.js"></script> 
 <script src="http://api.map.baidu.com/components?ak=gGjGA4Ng2KusN0Lz5wsCeQ32&v=1.0"></script>
 
 <script type="text/javascript">
@@ -294,7 +295,7 @@
 <script type="text/javascript">
 
   $(function() {
-    var galleries = $('.ad-gallery').adGallery({width:550,height:360,effect:'fade',loader_image:'/public/js/gallery/loader.gif'});
+    var galleries = $('.ad-gallery').adGallery({width:550,height:360,effect:'fade',loader_image:'__PUBLIC__/js/gallery/loader.gif'});
   });
   
   
