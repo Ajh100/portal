@@ -28,3 +28,4 @@
 ## 帮助
 
 [ThinkPhP框架API](http://document.thinkphp.cn/manual_3_2.html) 
+[github帮助文档](https://github.com/waylau/github-help)
